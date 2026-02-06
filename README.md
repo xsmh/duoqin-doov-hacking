@@ -12,7 +12,7 @@ If this saved you time and effort, consider supporting me on Ko-fi.
 - [Overview](#overview)
    * [Tested devices ](#tested-devices)
 - [Device button combinations ](#device-button-combinations)
-- [Warning  ⚠️ ⚠️ ⚠️](#warning----)
+- [Warning  ⚠️ ⚠️ ⚠️](#warning-)
 - [Prerequisites](#prerequisites)
 - [Install the flashing tools ](#install-the-flashing-tools)
    * [Create bootable USB stick](#create-bootable-usb-stick)
@@ -24,6 +24,7 @@ If this saved you time and effort, consider supporting me on Ko-fi.
    * [For F21 Pro and similar models where “press volume up” doesn’t work](#for-f21-pro-and-similar-models-where-press-volume-up-doesnt-work)
 - [Flash new ROM](#flash-new-rom)
 - [Enter fastboot](#enter-fastboot)
+- [Recover from backup](#recover-from-backup)
 - [Remove TWRP from F21 Pro](#remove-twrp-from-f21-pro)
    * [Solution](#solution)
 - [Flash American bands on F21 Pro](#flash-american-bands-on-f21-pro)
@@ -33,18 +34,16 @@ If this saved you time and effort, consider supporting me on Ko-fi.
    * [FAILED (remote: 'This partition doesn't exist')](#failed-remote-this-partition-doesnt-exist)
    * [FAILED (remote: 'Not enough space to resize partition')](#failed-remote-not-enough-space-to-resize-partition)
       + [Solution](#solution-1)
-         - [Option1: Delete product partition](#option1-delete-product-partition)
+         - [Option1: Delete product partition (Experimental)](#option1-delete-product-partition-experimental)
          - [Option2: Delete COW partitions](#option2-delete-cow-partitions)
             * [For `cow` partition that are in slot `a` (.e.g `system_a-cow`)](#for-cow-partition-that-are-in-slot-a-eg-system_a-cow)
             * [For `cow` partition that are in slot `b` (.e.g `system_b-cow`)](#for-cow-partition-that-are-in-slot-b-eg-system_b-cow)
-         - [Finally](#finally)
+         - [Finally  ](#finally)
    * [Dm-verity corruption](#dm-verity-corruption)
       + [Solution](#solution-2)
-   * [Orange state warning](#orange-state-warning)
-   * [Preloader - [LIB]: Status: Handshake failed](#preloader---lib-status-handshake-failed)
+   * [Orange state warning ](#orange-state-warning)
+   * [Preloader - [LIB]: Status: Handshake failed](#preloader-lib-status-handshake-failed)
 - [Special Thanks](#special-thanks)
-
-<!-- TOC end -->
 
 
 # Overview
@@ -188,6 +187,10 @@ If you need to enter fastboot:
 1. Turn the phone off if it is not already.
 2. Run `python3 mtkfastboot.py`.
 3. Conncect the cable and wait until the command forces the device to reboot into fastboot. You should see a text that says "fastboot" at the bottom left of the screen.
+
+# Recover from backup
+
+If you would like to recover from your backup, assuming your backup is on your USB stick, run `mtk wl /media/user/exampleName/stock_rom`. Don't forget to replace `exampleName` with the actual name of your drive as mentioned in the [Make a backup](#make-a-backup) section.
 
 # Remove TWRP from F21 Pro
 If you come from that one infamous guide on XDA where they guide you to install TWRP without making a backup. You have probably been stuck trying to flash Dumbdroid. That's because fastboot**D** is broken on that particular installation of TWRP.
