@@ -4,7 +4,7 @@ This is a documentation for hacking Duoqin / Doov brand phones.
 # Overview
 This documentation has been written to walk the owners of Duoqin / Doov devices through flashing Dumbdroid or any other compatible ROM of their choice.
 
-The guide assumes that you are using Windows 10/11. If you are using Linux, I trust your ability to figure out the OS specific parts on your own. If you are using Apple, good luck.
+The guide assumes that you are using Windows 10/11. If you are using Linux, I trust your ability to figure out the OS specific parts on your own. If you are using macOS, good luck.
 
 ## Tested devices 
 The guide has been tested on the following devices:
@@ -38,17 +38,17 @@ By following this guide, you **agree to proceed at your own risk**. I'm **not re
 
 # Prerequisites
 1. A Duoqin or Doov brand phone.
-2. A computer with at least 8GB of RAM for running the flashing tools.[^Apple] Preferably having at least three USB-A ports.
+2. A computer with at least 8GB of RAM and three USB-A ports for running the flashing tools.[^Apple]
 3. Two USB flash drives.[^Drive] Each having a capacity of 12GB or more.[^Capacity]
-4. A data transfer capable USB A-C cable. The one included in the box should normally work fine. [^Cable]
+4. A data transfer USB A-C cable. Strictly A-C, **not** C-C. Make sure the cable you use is capable of transferring data, not just power. [^Cable]
 
 
 # Install the flashing tools 
 This has been by far the most difficult part of the process for most users.
 To simplify the process I have created a customized Linux ISO that comes with the tools you need pre-installed. This does not include SN Writer, which you will only need if you are flashing the American bands. You will have to use Windows for it if you need it.
 
-## Create bootale USB stick
-1. Download the [Linux ISO](https://mega.nz/file/S5gSVY5Y#WPGum-d7_GwofKBpXnCi_4aPqy9bXSXdNF1fqQy02O0) that comes pre-installed with the tools.
+## Create bootable USB stick
+1. Download the [Linux ISO](https://drive.google.com/file/d/1CvvSBCKkm-XuoGigf3GqxbLbz0_Ti-_j) that comes pre-installed with the tools.
 2. Downloads and install [Rufus](https://rufus.ie/en/#download).
 3. Launch Rufus and insert a USB stick. Your USB drive should show up in the `Device` field.
 4. Click `SELECT`. Choose the Linux ISO and click `Open` to confirm.
@@ -97,14 +97,69 @@ If your computer has +16GB of RAM, you could skip using the 2nd drive and store 
 # Unlock the bootloader
 This will factory reset your phone and you will lose your data!
 
+### For most models:
+1. [Enter fastboot](#enter-fastboot).
+2. Run `fastboot flashing unlock`.
+3. Run `fastboot --disable-verity --disable-verification flash vbmeta vbmeta_a.bin`.  
+
+### For the F21 Pro and other models that ask you to press volume-up but no button works:
+1. Turn the phone off.
+2. Run `mtk da seccfg unlock`.
+3. [Enter fastboot](#enter-fastboot).
+4. Run `fastboot --disable-verity --disable-verification flash vbmeta vbmeta_a.bin`.
 
 
+## dm-verity corruption
+A common issue that many run into is the following message appearing on boot and not letting them go past the bootloader after unlocking the device.
+The fix is following step 4-6 from previous section. If that doesn't work, you can try this:
 
+1. Turn the phone off.
+2. Run `mtk w vbmeta vbmeta_a.bin`.
+3. Connect the cable and wait for the command to finish. Then unplug and reboot the phone to see if the message is gone.
+
+```
+dm-verity corruption
+Your device is corrupt.
+It can't be trusted and may not work properly
+Press power button to continue.
+Or, device will power off in 5s
+```
+## Orange state warning 
+Your device may show this message on boot. This is normal as long as your device boots after you press the power button and wait 5 seconds.
+You don't need to remove it but you can if you wish to, although it may require some effort. Follow [this guide](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO?tab=readme-ov-file#changing-the-orange-state-warning-text) if you are interested.
+
+```
+Orange State
+Your device has been unlocked and can't be trusted
+Your device will boot in 5 seconds
+```
+
+# Flash the new ROM
+
+There are a few LineageOS ROMs available that you can try. I'm going to flash Dumbdroid as it's currently the best option for these keypad phones.
+
+1. Erase user data if you are upgrading from the stock ROM. Updating Dumbdroid doesn’t require this step. Run the following commands.  
+`fastboot erase userdata`  
+`fastboot erase metadata`
+2. Download the appropriate *.img.gz from the [latest build](https://github.com/miki151/dumbdroid_build/releases/latest) of Dumbdroid onto the Linux ISO or the 2nd USB drive. Choose between G-apps and Vanilla (Micro-g). For the F21 pro, use the "30" version, for all other phones, use "31". 
+3. Uncompress (unzip) the file after the download has finished. Do **NOT** simply rename it to .img from .img.gz.
+4. [Enter fastboot](#enter-fastboot).
+5. Run `fastboot reboot fastboot` to enter fastboot**D**.
+6. Once the phone has rebooted into fastboot**D** (colored text on black background) run this command.
+`fastboot flash system ???.img` but replace `???` with the actual filename.
+
+
+# Enter fastboot
+1. Turn the phone off if it is not already.
+2. Run `python3 mtkfastboot.py`.
+3. Conncect the cable and wait until the command forces the device to reboot into fastboot. You should see a text that says "fastboot" at the bottom left of the screen.
+
+# Common errors
+
+### FAILED (remote: 'Not enough space to resize partition')
 
 [^F22]: Dumbdroid does not work with the F22 non-pro, it uses a 32-bit system and you will have to find a compatible ROM on your own.
 [^Apple]: No Apple junk. Unless it has an Intel CPU, then it is somewhat workable.
 [^Drive]: Any other type of external storage device works.
 [^Capacity]: 8 + 12 GB is also fine.
-[^Cable]: Make sure the cable you use is capable of transferring data, not just power. Strictly A-C, **not** C-C.
-
-# 
+[^Cable]: The one included in the box should normally work fine.
