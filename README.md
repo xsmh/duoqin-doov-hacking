@@ -169,14 +169,13 @@ This will factory reset your phone and you will lose your data!
 There are a few LineageOS ROMs available that you can try. I'm going to flash Dumbdroid as it's currently the best option for these keypad phones.
 
 
-
-1. Erase user data if you are upgrading from the stock ROM. Updating Dumbdroid doesn’t require this step. Run the following commands.  
+1. [Enter fastboot](#enter-fastboot) mode if you aren't in it already.
+2. Run `fsatboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
+3. Erase user data if you are upgrading from the stock ROM. Updating Dumbdroid doesn’t require this step. Run the following commands.  
 `fastboot erase userdata`  
 `fastboot erase metadata`
-2. Download the appropriate *.img.gz from the [latest build](https://github.com/miki151/dumbdroid_build/releases/latest) of Dumbdroid onto the Linux ISO or the 2nd USB drive. Choose between G-apps and Vanilla (Micro-g). For the F21 pro, use the "30" version, for all other phones, use "31". 
-3. Uncompress (unzip) the file after the download has finished. Do **NOT** simply rename it to .img from .img.gz.
-4. [Enter fastboot](#enter-fastboot).
-5. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
+4. Download the appropriate *.img.gz from the [latest build](https://github.com/miki151/dumbdroid_build/releases/latest) of Dumbdroid onto the Linux ISO or the 2nd USB drive. Choose between G-apps and Vanilla (Micro-g). For the F21 pro, use the "30" version, for all other phones, use "31". 
+5. Uncompress (unzip) the file after the download has finished. Do **NOT** simply rename it to .img from .img.gz.
 6. Once the phone has rebooted into fastboot**D** (colored text on black background) run this command.
 `fastboot flash system ???.img` but replace `???` with the actual filename and wait for it to finish.
 7. Run `fastboot reboot` and wait for the device to reboot. If Orange State warning appears, press the power button to proceed and wait 5-10 minutes for the new OS to boot.
