@@ -1,6 +1,52 @@
 # Duoqin / Doov Hacking
 This is a documentation for hacking Duoqin / Doov brand phones.
 
+# Support Me
+If this saved you time and effort, consider supporting me on Ko-fi.
+
+<a href="https://ko-fi.com/frog11">
+  <img src="https://cdn.prod.website-files.com/5c14e387dab576fe667689cf/670f5a0171bfb928b21a7e00_support_me_on_kofi_beige.png" alt="Ko-fi" width="400">
+</a>
+
+# ToC
+- [Overview](#overview)
+   * [Tested devices ](#tested-devices)
+- [Device button combinations ](#device-button-combinations)
+- [Warning  ⚠️ ⚠️ ⚠️](#warning----)
+- [Prerequisites](#prerequisites)
+- [Install the flashing tools ](#install-the-flashing-tools)
+   * [Create bootable USB stick](#create-bootable-usb-stick)
+   * [Boot from USB stick ](#boot-from-usb-stick)
+   * [General info about the Linux ISO](#general-info-about-the-linux-iso)
+- [Make a backup](#make-a-backup)
+- [Unlock the bootloader](#unlock-the-bootloader)
+   * [For most models](#for-most-models)
+   * [For F21 Pro and similar models where “press volume up” doesn’t work](#for-f21-pro-and-similar-models-where-press-volume-up-doesnt-work)
+- [Flash new ROM](#flash-new-rom)
+- [Enter fastboot](#enter-fastboot)
+- [Remove TWRP from F21 Pro](#remove-twrp-from-f21-pro)
+   * [Solution](#solution)
+- [Flash American bands on F21 Pro](#flash-american-bands-on-f21-pro)
+   * [Notes ](#notes)
+   * [Flash](#flash)
+- [Common errors](#common-errors)
+   * [FAILED (remote: 'This partition doesn't exist')](#failed-remote-this-partition-doesnt-exist)
+   * [FAILED (remote: 'Not enough space to resize partition')](#failed-remote-not-enough-space-to-resize-partition)
+      + [Solution](#solution-1)
+         - [Option1: Delete product partition](#option1-delete-product-partition)
+         - [Option2: Delete COW partitions](#option2-delete-cow-partitions)
+            * [For `cow` partition that are in slot `a` (.e.g `system_a-cow`)](#for-cow-partition-that-are-in-slot-a-eg-system_a-cow)
+            * [For `cow` partition that are in slot `b` (.e.g `system_b-cow`)](#for-cow-partition-that-are-in-slot-b-eg-system_b-cow)
+         - [Finally](#finally)
+   * [Dm-verity corruption](#dm-verity-corruption)
+      + [Solution](#solution-2)
+   * [Orange state warning](#orange-state-warning)
+   * [Preloader - [LIB]: Status: Handshake failed](#preloader---lib-status-handshake-failed)
+- [Special thanks](#special-thanks)
+
+<!-- TOC end -->
+
+
 # Overview
 This documentation has been written to walk the owners of Duoqin / Doov devices through flashing Dumbdroid or any other compatible ROM of their choice.
 
@@ -12,7 +58,7 @@ The guide has been tested on the following devices:
 **Duoqin:**
 - F21 Pro
 - F22 Pro
-- F22[^F22]
+- F22[^F22] (read footnote regarding Dumbdroid)
 
 **Doov:**
 - R77 Pro (R77c)
@@ -20,6 +66,7 @@ The guide has been tested on the following devices:
 - R17 (Z17) Pro (3.5 inch screen)
 
 # Device button combinations 
+We won't be using any of the button combos in this guide but they are useful to know sometimes.
 | Model | BROM (bootrom) | Recovery |
 | :---  | :--- | :--- |
 | **F21 Pro** | `menu` + `back` (top two buttons) | `menu` + `power` + `*`, wait until android logo appears and then hold `power` + `up` |
@@ -32,6 +79,7 @@ The guide has been tested on the following devices:
 # Warning  ⚠️ ⚠️ ⚠️
 - Do **NOT** use AI chatbots for this unless you want a bricked device.
 - Do **NOT** skip making a backup. I cannot help you if you brick your device and do not have a backup.
+- Do **NOT** delete or flash the preloader. Recovering from a broken preloader is extremely difficult if not impossible. Especially without a backup.
 
 Flashing your device can **brick your phone** if done incorrectly.  
 By following this guide, you **agree to proceed at your own risk**. I'm **not responsible** for any damage, data loss, or other issues that may occur.  
@@ -45,10 +93,10 @@ By following this guide, you **agree to proceed at your own risk**. I'm **not re
 
 # Install the flashing tools 
 This has been by far the most difficult part of the process for most users.
-To simplify the process I have created a customized Linux ISO that comes with the tools you need pre-installed. This does not include SN Writer, which you will only need if you are flashing the American bands. You will have to use Windows for it if you need it.
+To simplify it I have created a customized Linux ISO that comes with the tools you need pre-installed. This does not include SN Writer, which you will only need if you are flashing the American bands. You will have to use Windows for it if you need it.
 
 ## Create bootable USB stick
-1. Download the [Linux ISO](https://drive.google.com/file/d/1CvvSBCKkm-XuoGigf3GqxbLbz0_Ti-_j) that comes pre-installed with the tools.
+1. Download the [Linux ISO](https://drive.google.com/file/d/1Et7JjyKfpadQd9hh9fi7D-ECnHhC0tQT) that comes pre-installed with the tools.
 2. Downloads and install [Rufus](https://rufus.ie/en/#download).
 3. Launch Rufus and insert a USB stick. Your USB drive should show up in the `Device` field.
 4. Click `SELECT`. Choose the Linux ISO and click `Open` to confirm.
@@ -64,17 +112,20 @@ Hold the `Shift` key while pressing the `Restart` button and keep holding the ke
 
 **Option 2:** Reboot your computer and go into the BIOS. Disable `Secure Boot` and change the boot order to make the USB drive the first option. Save and reboot. These are some general instructions. This method will depend on your computer model, so you will have to look it up if you don't know how to do it. 
 
-**Finally:** When the computer reboots, you will be greeted with a few options. Pick the one that says "Start Linux Mint". This is normally the first option. Once you have booted into Linux, you will be shown a login screen. Insert the password `user` and hit enter.
+**Finally:** When the computer reboots, you will be greeted with a few options. Press enter on the first option `Start Linux Mint`. Once you have booted into Linux, you will be shown a login screen. Insert the password `user` and hit enter.
 
 ## General info about the Linux ISO
 - There is no persistence. Meaning that any data you store on the Linux ISO itself will be lost after a reboot.
 - Wi-Fi may not work on some computer models due to unavaialble proprietary drivers. In which case you will have either use an ethernet cable or transfer data via an external drive.
-- There are 4 pre-installed programs that you can run with the following commands: 
+- Includes empty vbmeta file, American bands partitions, and python script to force fastboot mode.
+- There are 4 pre-installed programs that you can run with the following commands from the terminal: 
  1. `adb`
  2. `fastboot`
  3. `ghex`
  4. `mtk` for CLI mode of mtkclient & `mtk_gui` for the graphical interface
 
+
+ To open the terminal, simply click the black rectangle icon in the task bar.  
  Going forward, whenever I mention **Run**, it means type the command that follows in the terminal and press enter. 
 
 # Make a backup
@@ -97,25 +148,157 @@ If your computer has +16GB of RAM, you could skip using the 2nd drive and store 
 # Unlock the bootloader
 This will factory reset your phone and you will lose your data!
 
-### For most models:
+## For most models
 1. [Enter fastboot](#enter-fastboot).
 2. Run `fastboot flashing unlock`.
 3. Run `fastboot --disable-verity --disable-verification flash vbmeta vbmeta_a.bin`.  
 
-### For the F21 Pro and other models that ask you to press volume-up but no button works:
-1. Turn the phone off.
+## For F21 Pro and similar models where “press volume up” doesn’t work
+1. Turn off the phone.
 2. Run `mtk da seccfg unlock`.
 3. [Enter fastboot](#enter-fastboot).
 4. Run `fastboot --disable-verity --disable-verification flash vbmeta vbmeta_a.bin`.
 
 
-## dm-verity corruption
-A common issue that many run into is the following message appearing on boot and not letting them go past the bootloader after unlocking the device.
-The fix is following step 4-6 from previous section. If that doesn't work, you can try this:
 
-1. Turn the phone off.
-2. Run `mtk w vbmeta vbmeta_a.bin`.
-3. Connect the cable and wait for the command to finish. Then unplug and reboot the phone to see if the message is gone.
+# Flash new ROM
+
+**Note:** Before flashing a new ROM, if you have the `F21 Pro`[^Bands] and live in US/Canada and want to flash the American bands, jump to [Flash American bands on F21 Pro](#flash-american-bands-on-f21-pro)
+
+**Note2:** Some F21 Pro users might have TWRP installed. You will need to [remove TWRP](#remove-twrp-from-f21-pro) in order to flash Dumbdroid.
+
+There are a few LineageOS ROMs available that you can try. I'm going to flash Dumbdroid as it's currently the best option for these keypad phones.
+
+
+
+1. Erase user data if you are upgrading from the stock ROM. Updating Dumbdroid doesn’t require this step. Run the following commands.  
+`fastboot erase userdata`  
+`fastboot erase metadata`
+2. Download the appropriate *.img.gz from the [latest build](https://github.com/miki151/dumbdroid_build/releases/latest) of Dumbdroid onto the Linux ISO or the 2nd USB drive. Choose between G-apps and Vanilla (Micro-g). For the F21 pro, use the "30" version, for all other phones, use "31". 
+3. Uncompress (unzip) the file after the download has finished. Do **NOT** simply rename it to .img from .img.gz.
+4. [Enter fastboot](#enter-fastboot).
+5. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
+6. Once the phone has rebooted into fastboot**D** (colored text on black background) run this command.
+`fastboot flash system ???.img` but replace `???` with the actual filename and wait for it to finish.
+7. Run `fastboot reboot` and wait for the device to reboot. If Orange State warning appears, press the power button to proceed and wait 5-10 minutes for the new OS to boot.
+
+
+# Enter fastboot
+If you need to enter fastboot: 
+1. Turn the phone off if it is not already.
+2. Run `python3 mtkfastboot.py`.
+3. Conncect the cable and wait until the command forces the device to reboot into fastboot. You should see a text that says "fastboot" at the bottom left of the screen.
+
+# Remove TWRP from F21 Pro
+If you come from that one infamous guide on XDA where they guide you to install TWRP without making a backup. You have probably been stuck trying to flash Dumbdroid. That's because fastboot**D** is broken on that particular installation of TWRP.
+## Solution
+Because there are different hardware revisions of the F21 Pro, I cannot guarantee that this solution will work. That's why it's essential to make a backup first. If it does not work for you then you will need to find a boot image that's compatible with your device and does not have TWRP installed.
+
+1. Make sure that you have [made a backup](#make-a-backup).
+2. Turn the phone off.
+3. Run `mtk w boot TWRPless_F21_Boot/boot_a.bin`.
+4. Connect the cable and wait for the command to finish.
+
+TWRP should now be gone.
+
+# Flash American bands on F21 Pro
+
+⚠️ **Skip this section if you do not live in US/Canada.**
+
+In this section we will go through the process of flashing American bands on the F21 Pro for users who need them. 
+
+## Notes 
+- This section should be followed after [unlocking the bootloader](#unlock-the-bootloader) and **before** [flashing a new ROM](#flash-new-rom) because SN Write Tool does not work with LineageOS/Dumbdroid.
+- Make sure that you have [made a backup](#make-a-backup).
+- Covered LTE Bands: 2, 4, 12, 13, 17, 66, 71  
+This covers most T-Mobile and Verizon users. In addition to some AT&T support depending on region. Do note that **Verizon** will **not** work if you are going to flash Dumbdroid.  
+
+
+## Flash
+
+Note: If you skip SN Write Tool, you’ll get dummy identifiers that may conflict with other devices.
+1. Backup identifiers:  
+    Go to Settings > About Phone, and write down:
+
+    IMEI  
+    WiFi MAC Address  
+    Bluetooth Address
+2. Flash LTE bands by running `mtk wl F30_Modem_Files` and wait for it to finish.
+3. Download [SN Write Tool](https://drive.google.com/file/d/1mmiI9kMxqQdlhN6pV-Z44qI3lXHt9ChA) and unzip.
+4. Restore identifiers with SN Write Tool:  
+    Open SN Write tools
+    
+    1. Set:  
+        ComPort: USBVCOM  
+        Target Type: Smart Phone  
+
+    2. Click System Config. Under Write Option, check:  
+            IMEI  
+            BT Address  
+            WiFi Address  
+    3. Under Database File:  
+            Check both “Load AP DB from DUT” and “Load Modem DB from DUT”  
+        Click MD1_DB and choose:  
+        MDDB_InfoCustomAppSrcP_MT6761S00...EDB  
+        Click AP_DB and choose:  
+        APDB_MT6761_S01__W1947...  
+        Click Save and return to main window.
+    4. Click Start. Enter:  
+        IMEI (without spaces)  
+        BT Address (without colons)  
+        WiFi Address (without colons)  
+    5. Hold Back button, plug in phone, and click OK. Wait for Green PASS confirmation. If a second window pops up, just close it if you already saw PASS.
+5. Boot Up & Verify:   
+   1. Turn on your phone and go to Settings > About Phone. Ensure that IMEI, WiFi MAC, Bluetooth MAC are correct.
+   2. Check active bands:  
+    Dial: **\*#\*#3646633#\*#\***  
+    Navigate to Band Mode  
+    Scroll to confirm bands 2, 4, 12, 13, 17, 66, 71 are active.
+
+
+# Common errors
+
+## FAILED (remote: 'This partition doesn't exist')
+You are probably trying to flash the `system` partition from fastboot instead of fastboot**D**.  
+Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D** (colored text on black background).
+
+## FAILED (remote: 'Not enough space to resize partition')
+On some devices like the F21 Pro 3GB model you might run into this error when you try to flash the system partition with Dumbdroid.
+
+### Solution
+
+#### Option1: Delete product partition
+1. [Enter fastboot](#Enter-fastboot)
+2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
+3. Run `fastboot getvar current-slot` to check which slot is currently active (`a` or `b`).
+4. If `current-slot` returned `a` then run `fastboot delete-logical-partition product_a`, otherwise replace `product_a` in the command with `product_b`.
+
+#### Option2: Delete COW partitions
+- Run `fastboot getvar all` and check if you have any partitions with the name ending with `cow`. Example: `system_a-cow`. If you have them proceed to the next step, otherwise ignore this option.
+
+##### For `cow` partition that are in slot `a` (.e.g `system_a-cow`)
+
+1. Run `fastboot set_active a` to set the active slot to `a`.
+2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
+3. Use `fastboot delete-logical-partition examplePartition` to delete the desired `cow` partition. Replace `examplePartition` with the name of the `cow` partition you want to delete (e.g. `system_a-cow`).
+4. Repeat the previous step for each `cow` partition in the `a` slot.
+
+
+##### For `cow` partition that are in slot `b` (.e.g `system_b-cow`)
+1. Run `fastboot set_active b` to set the active slot to `b`.
+2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
+3. Use `fastboot delete-logical-partition examplePartition` to delete the desired `cow` partition. Replace `examplePartition` with the name of the `cow` partition you want to delete (e.g. `system_b-cow`).
+4. Repeat the previous step for each `cow` partition in the `b` slot.
+
+#### Finally  
+
+After you have finished using one of the previously mentioned options:
+1. switch back to your initial active slot with the `fastboot set_active exampleSlot` command, replace `exampleSlot` with `a` or `b` depending on which one was active before doing one of the previous options.
+2. Repeat steps 5-6 from [Flash the new ROM](#flash-the-new-rom) section.
+
+
+## Dm-verity corruption
+A common issue that many run into is the following message appearing on boot and not letting them go past the bootloader after unlocking the device.
 
 ```
 dm-verity corruption
@@ -124,6 +307,14 @@ It can't be trusted and may not work properly
 Press power button to continue.
 Or, device will power off in 5s
 ```
+
+### Solution
+Follow step 3-4 from [this section](#for-the-f21-pro-and-other-models-that-ask-you-to-press-volume-up-but-no-button-works). If that doesn't work, you can try this:
+
+1. Turn off the phone.
+2. Run `mtk w vbmeta vbmeta_a.bin`.
+3. Connect the cable and wait for the command to finish. Then unplug and reboot the phone to see if the message is gone.
+
 ## Orange state warning 
 Your device may show this message on boot. This is normal as long as your device boots after you press the power button and wait 5 seconds.
 You don't need to remove it but you can if you wish to, although it may require some effort. Follow [this guide](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO?tab=readme-ov-file#changing-the-orange-state-warning-text) if you are interested.
@@ -134,32 +325,26 @@ Your device has been unlocked and can't be trusted
 Your device will boot in 5 seconds
 ```
 
-# Flash the new ROM
+## Preloader - [LIB]: Status: Handshake failed
+Assuming you are using the Linux ISO in this guide and not some other OS:
+1. Make sure your cable can transfer data, not just power.
+2. Press CTRL+C to kill mtkclient.
+3. Unplug the cable.
+4. Rerun the command.
+5. Replug the cable.
 
-There are a few LineageOS ROMs available that you can try. I'm going to flash Dumbdroid as it's currently the best option for these keypad phones.
+If it still doesn't work try again in [BROM](#device-button-combinations) mode. Repeat step 2-4. On step 5 hold the button combo and plug the cable in while still holding the buttons.
+Repeat this a couple of times if it still doesn't work.
 
-1. Erase user data if you are upgrading from the stock ROM. Updating Dumbdroid doesn’t require this step. Run the following commands.  
-`fastboot erase userdata`  
-`fastboot erase metadata`
-2. Download the appropriate *.img.gz from the [latest build](https://github.com/miki151/dumbdroid_build/releases/latest) of Dumbdroid onto the Linux ISO or the 2nd USB drive. Choose between G-apps and Vanilla (Micro-g). For the F21 pro, use the "30" version, for all other phones, use "31". 
-3. Uncompress (unzip) the file after the download has finished. Do **NOT** simply rename it to .img from .img.gz.
-4. [Enter fastboot](#enter-fastboot).
-5. Run `fastboot reboot fastboot` to enter fastboot**D**.
-6. Once the phone has rebooted into fastboot**D** (colored text on black background) run this command.
-`fastboot flash system ???.img` but replace `???` with the actual filename.
-
-
-# Enter fastboot
-1. Turn the phone off if it is not already.
-2. Run `python3 mtkfastboot.py`.
-3. Conncect the cable and wait until the command forces the device to reboot into fastboot. You should see a text that says "fastboot" at the bottom left of the screen.
-
-# Common errors
-
-### FAILED (remote: 'Not enough space to resize partition')
+# Special thanks
+AlikornSause  
+mikki  
+Deathmist  
+CatStoleTheCrown  
 
 [^F22]: Dumbdroid does not work with the F22 non-pro, it uses a 32-bit system and you will have to find a compatible ROM on your own.
-[^Apple]: No Apple junk. Unless it has an Intel CPU, then it is somewhat workable.
+[^Apple]: No Apple junk. Unless it has an Intel CPU, the Linux ISO should work fine then. 
 [^Drive]: Any other type of external storage device works.
 [^Capacity]: 8 + 12 GB is also fine.
 [^Cable]: The one included in the box should normally work fine.
+[^Bands]: Not applicable to other models.
