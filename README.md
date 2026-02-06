@@ -170,7 +170,7 @@ There are a few LineageOS ROMs available that you can try. I'm going to flash Du
 
 
 1. [Enter fastboot](#enter-fastboot) mode if you aren't in it already.
-2. Run `fsatboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
+2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
 3. Erase user data if you are upgrading from the stock ROM. Updating Dumbdroid doesn’t require this step. Run the following commands.  
 `fastboot erase userdata`  
 `fastboot erase metadata`
