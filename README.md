@@ -42,7 +42,7 @@ If this saved you time and effort, consider supporting me on Ko-fi.
       + [Solution](#solution-2)
    * [Orange state warning](#orange-state-warning)
    * [Preloader - [LIB]: Status: Handshake failed](#preloader---lib-status-handshake-failed)
-- [Special thanks](#special-thanks)
+- [Special Thanks](#special-thanks)
 
 <!-- TOC end -->
 
@@ -226,7 +226,7 @@ Note: If you skip SN Write Tool, you’ll get dummy identifiers that may conflic
 2. Flash LTE bands by running `mtk wl F30_Modem_Files` and wait for it to finish.
 3. Download [SN Write Tool](https://drive.google.com/file/d/1mmiI9kMxqQdlhN6pV-Z44qI3lXHt9ChA) and unzip.
 4. Restore identifiers with SN Write Tool:  
-    Open SN Write tools
+    Open SN Write Tool
     
     1. Set:  
         ComPort: USBVCOM  
