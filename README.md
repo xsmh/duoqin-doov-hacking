@@ -336,11 +336,14 @@ Assuming you are using the Linux ISO in this guide and not some other OS:
 If it still doesn't work try again in [BROM](#device-button-combinations) mode. Repeat step 2-4. On step 5 hold the button combo and plug the cable in while still holding the buttons.
 Repeat this a couple of times if it still doesn't work.
 
-# Special thanks
-AlikornSause  
-mikki  
-Deathmist  
-CatStoleTheCrown  
+# Special Thanks
+
+This guide would not have been possible without the amazing contributions from:
+
+[AlikornSause](https://ko-fi.com/alikornsause)  
+[Michal Brzozowski](https://ko-fi.com/dumbdroid)  
+[Deathmist](https://github.com/JamiKettunen/)  
+CatStoleTheCrown
 
 [^F22]: Dumbdroid does not work with the F22 non-pro, it uses a 32-bit system and you will have to find a compatible ROM on your own.
 [^Apple]: No Apple junk. Unless it has an Intel CPU, the Linux ISO should work fine then. 
