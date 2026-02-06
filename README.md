@@ -267,7 +267,9 @@ On some devices like the F21 Pro 3GB model you might run into this error when yo
 
 ### Solution
 
-#### Option1: Delete product partition
+#### Option1: Delete product partition (Experimental)
+**Warning**: Deleting the product partition has not been tested extensively. Usually it is recommended to flash a smaller product image instead.
+But this is the simpler solution and it would be great if more people could test it. Make sure to have a backup first.
 1. [Enter fastboot](#Enter-fastboot)
 2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
 3. Run `fastboot getvar current-slot` to check which slot is currently active (`a` or `b`).
