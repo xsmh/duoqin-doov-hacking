@@ -116,7 +116,7 @@ Hold the `Shift` key while pressing the `Restart` button and keep holding the ke
 
 ## General info about the Linux ISO
 - There is no persistence. Meaning that any data you store on the Linux ISO itself will be lost after a reboot.
-- Wi-Fi may not work on some computer models due to unavaialble proprietary drivers. In which case you will have either use an ethernet cable or transfer data via an external drive.
+- Wi-Fi may not work on some computer models due to unavaialble proprietary drivers. In which case you will have to either use an ethernet cable or transfer data via an external drive.
 - Includes empty vbmeta file, American bands partitions, and python script to force fastboot mode.
 - There are 4 pre-installed programs that you can run with the following commands from the terminal: 
  1. `adb`
