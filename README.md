@@ -174,7 +174,7 @@ There are a few LineageOS ROMs available that you can try. I'm going to flash Du
 3. Erase user data if you are upgrading from the stock ROM. Updating Dumbdroid doesn’t require this step. Run the following commands.  
 `fastboot erase userdata`  
 `fastboot erase metadata`
-4. Download the appropriate *.img.gz from the [latest build](https://github.com/miki151/dumbdroid_build/releases/latest) of Dumbdroid onto the Linux ISO or the 2nd USB drive. Choose between G-apps and Vanilla (Micro-g). For the F21 pro, use the "30" version, for all other phones, use "31". 
+4. Download the appropriate *.img.gz from the [latest build of Dumbdroid](https://github.com/miki151/dumbdroid_build/releases/latest) onto the Linux ISO or the 2nd USB drive. Choose between G-apps and Vanilla (Micro-g). For the F21 pro use the "30" version, for all other phones use "31". 
 5. After the download has finished, extract (unzip) the file by right clicking on it and then clicking `Extract here`. Do **NOT** simply rename it to .img from .img.gz.
 6. Once the phone has rebooted into fastboot**D** (colored text on black background) run this command.
 `fastboot flash system Downloads/???.img` but replace `???` with the actual filename and wait for it to finish. **Note:** The `Downloads/???.img` path assumes you extracted the Dumbdroid image inside the Downloads folder of the live Linux image.
