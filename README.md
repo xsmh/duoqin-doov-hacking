@@ -96,7 +96,7 @@ To simplify it I have created a customized Linux ISO that comes with the tools y
 
 ## Create bootable USB stick
 1. Download the [Linux ISO](https://drive.google.com/file/d/1Et7JjyKfpadQd9hh9fi7D-ECnHhC0tQT) that comes pre-installed with the tools.
-2. Downloads and install [Rufus](https://rufus.ie/en/#download).
+2. Download and install [Rufus](https://rufus.ie/en/#download).
 3. Launch Rufus and insert a USB stick. Your USB drive should show up in the `Device` field.
 4. Click `SELECT`. Choose the Linux ISO and click `Open` to confirm.
 5. If you’ve already tried Rufus and the USB stick failed to boot on your system, change `Partitioning scheme` to `GPT` and check that `Target system` is set to `UEFI (non CSM)`. This works on modern systems that disable legacy compatibility.
