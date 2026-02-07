@@ -226,7 +226,7 @@ Note: If you skip SN Write Tool, you’ll get dummy identifiers that may conflic
     WiFi MAC Address  
     Bluetooth Address
 2. Flash LTE bands by running `mtk wl F30_Modem_Files` and wait for it to finish.
-3. Download [SN Write Tool](https://drive.google.com/file/d/1mmiI9kMxqQdlhN6pV-Z44qI3lXHt9ChA) and unzip.
+3. Switch to Windows and download [SN Write Tool](https://drive.google.com/file/d/1mmiI9kMxqQdlhN6pV-Z44qI3lXHt9ChA) and unzip.
 4. Restore identifiers with SN Write Tool:  
     Open SN Write Tool
     
