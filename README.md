@@ -177,7 +177,7 @@ There are a few LineageOS ROMs available that you can try. I'm going to flash Du
 4. Download the appropriate *.img.gz from the [latest build of Dumbdroid](https://github.com/miki151/dumbdroid_build/releases/latest) onto the Linux ISO or the 2nd USB drive. Choose between G-apps and Vanilla (Micro-g). For the F21 pro use the "30" version, for all other phones use "31". 
 5. After the download has finished, extract (unzip) the file by right clicking on it and then clicking `Extract here`. Do **NOT** simply rename it to .img from .img.gz.
 6. Run this command from fastboot**D**  
-`fastboot flash system Downloads/???.img` but replace `???` with the actual filename and wait for it to finish. **Note:** The `Downloads/???.img` path assumes you extracted the Dumbdroid image inside the Downloads folder of the live Linux image.
+`fastboot flash system "Downloads/???.img"` but replace `???` with the actual filename and wait for it to finish. **Note:** The `"Downloads/???.img"` path assumes you extracted the Dumbdroid image inside the Downloads folder of the live Linux image.
 8. Run `fastboot reboot` and wait for the device to reboot. If Orange State warning appears, press the power button to proceed and wait 5-10 minutes for the new OS to boot.
 
 
@@ -189,7 +189,8 @@ If you need to enter fastboot:
 
 # Recover from backup
 
-If you would like to recover from your backup, assuming your backup is on your USB stick, run `mtk wl /media/user/exampleName/stock_rom`. Don't forget to replace `exampleName` with the actual name of your drive as mentioned in the [Make a backup](#make-a-backup) section.
+If you would like to recover from your backup, assuming your backup is on your USB stick, run  
+`mtk wl /media/user/exampleName/stock_rom`. Don't forget to replace `exampleName` with the actual name of your drive as mentioned in the [Make a backup](#make-a-backup) section.
 
 # Remove TWRP from F21 Pro
 If you come from that one infamous guide on XDA where they guide you to install TWRP without making a backup. You have probably been stuck trying to flash Dumbdroid. That's because fastboot**D** is broken on that particular installation of TWRP.
