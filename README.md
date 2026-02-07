@@ -190,7 +190,7 @@ If you need to enter fastboot:
 # Recover from backup
 
 If you would like to recover from your backup, assuming your backup is on your USB stick, run  
-`mtk wl /media/user/exampleName/stock_rom`. Don't forget to replace `exampleName` with the actual name of your drive as mentioned in the [Make a backup](#make-a-backup) section.
+`mtk wl "/media/user/exampleName/stock_rom"`. Don't forget to replace `exampleName` with the actual name of your drive as mentioned in the [Make a backup](#make-a-backup) section.
 
 # Remove TWRP from F21 Pro
 If you come from that one infamous guide on XDA where they guide you to install TWRP without making a backup. You have probably been stuck trying to flash Dumbdroid. That's because fastboot**D** is broken on that particular installation of TWRP.
