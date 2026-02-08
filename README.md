@@ -51,6 +51,8 @@ This documentation has been written to walk the owners of Duoqin / Doov devices 
 
 The guide assumes that you are using Windows 10/11. If you are using Linux, I trust your ability to figure out the OS specific parts on your own. If you are using macOS, good luck.
 
+If you encounter any problems while following this guide, refer to the [common errors](#common-errors) section. If your issue isn’t listed there, please open a new issue in this repository and include a description of the problem along with the relevant logs.
+
 ## Tested devices 
 The guide has been tested on the following devices:
 
