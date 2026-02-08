@@ -272,6 +272,8 @@ On some devices like the F21 Pro 3GB model you might run into this error when yo
 
 ### Solution
 
+You can pick one of the following options to fix it. 
+
 #### Option1: Delete product partition (Experimental)
 **Warning**: Deleting the product partition has not been tested extensively. Usually it is recommended to flash a smaller product image instead.
 But this is the simpler solution and it would be great if more people could test it. Make sure to have a backup first.
