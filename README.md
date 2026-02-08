@@ -34,11 +34,11 @@ If this saved you time and effort, I’d appreciate your support on Ko-fi.
    * [FAILED (remote: 'This partition doesn't exist')](#failed-remote-this-partition-doesnt-exist)
    * [FAILED (remote: 'Not enough space to resize partition')](#failed-remote-not-enough-space-to-resize-partition)
       + [Solution](#solution-1)
-         - [Option1: Delete product partition (Experimental)](#option1-delete-product-partition-experimental)
-         - [Option2: Delete COW partitions](#option2-delete-cow-partitions)
+         - [Option 1: Delete product partition (Experimental)](#option-1-delete-product-partition-experimental)
+         - [Option 2: Delete COW partitions](#option-2-delete-cow-partitions)
             * [For `cow` partition that are in slot `a` (.e.g `system_a-cow`)](#for-cow-partition-that-are-in-slot-a-eg-system_a-cow)
             * [For `cow` partition that are in slot `b` (.e.g `system_b-cow`)](#for-cow-partition-that-are-in-slot-b-eg-system_b-cow)
-         - [Finally  ](#finally)
+            * [Finally](#finally)
    * [Dm-verity corruption](#dm-verity-corruption)
       + [Solution](#solution-2)
    * [Orange state warning ](#orange-state-warning)
@@ -166,7 +166,7 @@ This will factory reset your phone and you will lose your data!
 
 **Note:** Before flashing a new ROM, if you have the `F21 Pro`[^Bands] and live in US/Canada and want to flash the American bands, jump to [Flash American bands on F21 Pro](#flash-american-bands-on-f21-pro)
 
-**Note2:** Some F21 Pro users might have TWRP installed. You will need to [remove TWRP](#remove-twrp-from-f21-pro) in order to flash Dumbdroid.
+**Note 2:** Some F21 Pro users might have TWRP installed. You will need to [remove TWRP](#remove-twrp-from-f21-pro) in order to flash Dumbdroid.
 
 There are a few LineageOS ROMs available that you can try. I'm going to flash Dumbdroid as it's currently the best option for these keypad phones.
 
@@ -221,7 +221,7 @@ This covers most T-Mobile and Verizon users. In addition to some AT&T support de
 
 ## Flash
 
-Note: If you skip SN Write Tool, you’ll get dummy identifiers that may conflict with other devices.
+**Note:** If you skip SN Write Tool, you’ll get dummy identifiers that may conflict with other devices.
 1. Backup identifiers:  
     Go to Settings > About Phone, and write down:
 
@@ -274,7 +274,7 @@ On some devices like the F21 Pro 3GB model you might run into this error when yo
 
 You can pick one of the following options to fix it. 
 
-#### Option1: Delete product partition (Experimental)
+#### Option 1: Delete product partition (Experimental)
 **Warning**: Deleting the product partition has not been tested extensively. Usually it is recommended to flash a smaller product image instead.
 But this is the simpler solution and it would be great if more people could test it. Make sure to have a backup first.
 1. [Enter fastboot](#Enter-fastboot)
@@ -284,9 +284,9 @@ But this is the simpler solution and it would be great if more people could test
 
 You can now repeat steps 5-6 from [Flash the new ROM](#flash-the-new-rom) section.
 
-#### Option2: Delete COW partitions
+#### Option 2: Delete COW partitions
 1. [Enter fastboot](#Enter-fastboot) mode if you aren't in it already.
-2. Run `fastboot getvar all` and check if you have any partitions with the name ending with `cow`. Example: `system_a-cow`. If you have them proceed to the next step, otherwise ignore this option and use [Option1](#option1-delete-product-partition-experimental) instead.
+2. Run `fastboot getvar all` and check if you have any partitions with the name ending with `cow`. Example: `system_a-cow`. If you have them proceed to the next step, otherwise ignore this option and use [Option 1](#option1-delete-product-partition-experimental) instead.
 3. Run `fastboot getvar current-slot` to check which slot is currently active (`a` or `b`). Take note of the active slot as we will be using it later.
 
 ##### For `cow` partition that are in slot `a` (.e.g `system_a-cow`)
