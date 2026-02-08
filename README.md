@@ -118,7 +118,7 @@ Hold the `Shift` key while pressing the `Restart` button and keep holding the ke
 ## General info about the Linux ISO
 - There is no persistence. Meaning that any data you store on the Linux ISO itself will be lost after a reboot.
 - Wi-Fi may not work on some computer models due to unavaialble proprietary drivers. In which case you will have to either use an ethernet cable or transfer data via an external drive.
-- Includes empty vbmeta file, American bands partitions, and python script to force fastboot mode.
+- Includes empty vbmeta file, American bands partitions, python script to force fastboot mode, and an `F21 Pro` boot image without TWRP installed.
 - There are 4 pre-installed programs that you can run with the following commands from the terminal: 
  1. `adb`
  2. `fastboot`
@@ -281,7 +281,8 @@ But this is the simpler solution and it would be great if more people could test
 4. If `current-slot` returned `a` then run `fastboot delete-logical-partition product_a`, otherwise replace `product_a` in the command with `product_b`.
 
 #### Option2: Delete COW partitions
-- Run `fastboot getvar all` and check if you have any partitions with the name ending with `cow`. Example: `system_a-cow`. If you have them proceed to the next step, otherwise ignore this option.
+1. [Enter fastboot](#Enter-fastboot) mode if you aren't in it already.
+2. Run `fastboot getvar all` and check if you have any partitions with the name ending with `cow`. Example: `system_a-cow`. If you have them proceed to the next step, otherwise ignore this option and use [Option1](#option1-delete-product-partition-experimental) instead.
 
 ##### For `cow` partition that are in slot `a` (.e.g `system_a-cow`)
 
