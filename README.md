@@ -12,7 +12,7 @@ If this saved you time and effort, I’d appreciate your support on Ko-fi.
 - [Overview](#overview)
    * [Tested devices ](#tested-devices)
 - [Device button combinations ](#device-button-combinations)
-- [Warning  ⚠️ ⚠️ ⚠️](#warning-)
+- [Warning  ⚠️ ⚠️ ⚠️](#warning--%EF%B8%8F-%EF%B8%8F-%EF%B8%8F)
 - [Prerequisites](#prerequisites)
 - [Install the flashing tools ](#install-the-flashing-tools)
    * [Create bootable USB stick](#create-bootable-usb-stick)
@@ -42,7 +42,7 @@ If this saved you time and effort, I’d appreciate your support on Ko-fi.
    * [Dm-verity corruption](#dm-verity-corruption)
       + [Solution](#solution-2)
    * [Orange state warning ](#orange-state-warning)
-   * [Preloader - [LIB]: Status: Handshake failed](#preloader-lib-status-handshake-failed)
+   * [Preloader - \[LIB\]: Status: Handshake failed](#preloader---lib-status-handshake-failed)
 - [Special Thanks](#special-thanks)
 
 
@@ -277,16 +277,16 @@ You can pick one of the following options to fix it.
 #### Option 1: Delete product partition (Experimental)
 **Warning**: Deleting the product partition has not been tested extensively. Usually it is recommended to flash a smaller product image instead.
 But this is the simpler solution and it would be great if more people could test it. Make sure to have a backup first.
-1. [Enter fastboot](#Enter-fastboot)
+1. [Enter fastboot](#enter-fastboot)
 2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
 3. Run `fastboot getvar current-slot` to check which slot is currently active (`a` or `b`).
 4. If `current-slot` returned `a` then run `fastboot delete-logical-partition product_a`, otherwise replace `product_a` in the command with `product_b`.
 
-You can now repeat steps 5-6 from [Flash the new ROM](#flash-the-new-rom) section.
+You can now repeat steps 5-6 from [Flash the new ROM](#flash-new-rom) section.
 
 #### Option 2: Delete COW partitions
-1. [Enter fastboot](#Enter-fastboot) mode if you aren't in it already.
-2. Run `fastboot getvar all` and check if you have any partitions with the name ending with `cow`. Example: `system_a-cow`. If you have them proceed to the next step, otherwise ignore this option and use [Option 1](#option1-delete-product-partition-experimental) instead.
+1. [Enter fastboot](#enter-fastboot) mode if you aren't in it already.
+2. Run `fastboot getvar all` and check if you have any partitions with the name ending with `cow`. Example: `system_a-cow`. If you have them proceed to the next step, otherwise ignore this option and use [Option 1](#option-1-delete-product-partition-experimental) instead.
 3. Run `fastboot getvar current-slot` to check which slot is currently active (`a` or `b`). Take note of the active slot as we will be using it later.
 
 ##### For `cow` partition that are in slot `a` (.e.g `system_a-cow`)
@@ -305,7 +305,7 @@ You can now repeat steps 5-6 from [Flash the new ROM](#flash-the-new-rom) sectio
 
 ##### Finally
 1. Switch back to your initial active slot with the `fastboot set_active exampleSlot` command, replace `exampleSlot` with `a` or `b` depending on which one was active before deleting the cow partition.
-2. repeat steps 5-6 from [Flash the new ROM](#flash-the-new-rom) section.
+2. repeat steps 5-6 from [Flash the new ROM](#flash-new-rom) section.
 
 
 ## Dm-verity corruption
@@ -320,7 +320,7 @@ Or, device will power off in 5s
 ```
 
 ### Solution
-Follow step 3-4 from [this section](#for-the-f21-pro-and-other-models-that-ask-you-to-press-volume-up-but-no-button-works). If that doesn't work, you can try this:
+Follow step 3-4 from [this section](#for-f21-pro-and-similar-models-where-press-volume-up-doesnt-work). If that doesn't work, you can try this:
 
 1. Turn off the phone.
 2. Run `mtk w vbmeta vbmeta_a.bin`.
@@ -328,7 +328,7 @@ Follow step 3-4 from [this section](#for-the-f21-pro-and-other-models-that-ask-y
 
 ## Orange state warning 
 Your device may show this message on boot. This is normal as long as your device boots after you press the power button and wait 5 seconds.
-You don't need to remove it but you can if you wish to, although it may require some effort. Follow [this guide](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO?tab=readme-ov-file#changing-the-orange-state-warning-text) if you are interested.
+You don't need to remove it but you can if you wish to, although it may require some effort. Follow [this guide](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO?tab=readme-ov-file#removing-the-orange-state-warning-text) if you are interested.
 
 ```
 Orange State
