@@ -282,9 +282,12 @@ But this is the simpler solution and it would be great if more people could test
 3. Run `fastboot getvar current-slot` to check which slot is currently active (`a` or `b`).
 4. If `current-slot` returned `a` then run `fastboot delete-logical-partition product_a`, otherwise replace `product_a` in the command with `product_b`.
 
+You can now repeat steps 5-6 from [Flash the new ROM](#flash-the-new-rom) section.
+
 #### Option2: Delete COW partitions
 1. [Enter fastboot](#Enter-fastboot) mode if you aren't in it already.
 2. Run `fastboot getvar all` and check if you have any partitions with the name ending with `cow`. Example: `system_a-cow`. If you have them proceed to the next step, otherwise ignore this option and use [Option1](#option1-delete-product-partition-experimental) instead.
+3. Run `fastboot getvar current-slot` to check which slot is currently active (`a` or `b`). Take note of the active slot as we will be using it later.
 
 ##### For `cow` partition that are in slot `a` (.e.g `system_a-cow`)
 
@@ -300,11 +303,9 @@ But this is the simpler solution and it would be great if more people could test
 3. Use `fastboot delete-logical-partition examplePartition` to delete the desired `cow` partition. Replace `examplePartition` with the name of the `cow` partition you want to delete (e.g. `system_b-cow`).
 4. Repeat the previous step for each `cow` partition in the `b` slot.
 
-#### Finally  
-
-After you have finished using one of the previously mentioned options:
-1. switch back to your initial active slot with the `fastboot set_active exampleSlot` command, replace `exampleSlot` with `a` or `b` depending on which one was active before doing one of the previous options.
-2. Repeat steps 5-6 from [Flash the new ROM](#flash-the-new-rom) section.
+##### Finally
+1. Switch back to your initial active slot with the `fastboot set_active exampleSlot` command, replace `exampleSlot` with `a` or `b` depending on which one was active before deleting the cow partition.
+2. repeat steps 5-6 from [Flash the new ROM](#flash-the-new-rom) section.
 
 
 ## Dm-verity corruption
