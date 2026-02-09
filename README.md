@@ -139,8 +139,9 @@ Do note that this will only backup the firmware, it will not backup personal use
 3. Type `lsblk` and hit enter. Under `MOUNTPOINTS` you will see an entry similar to  
 `/media/user/exampleName`. In your case `exampleName` will be whatever your USB drive name is. Take note of this path as we will use it in the next step.
 4. Run `mkdir "/media/user/exampleName/stock_rom"` but replace `exampleName` in the path with whatever your drive name was from the previous step.
-5. Run `mtk rl --skip userdata "/media/user/exampleName/stock_rom"` but don't forget to replace `exampleName` and wait until it has finished making the backup.
-6. Run `mtk r preloader "/media/user/exampleName/stock_rom/preloader.bin" --parttype=boot1`. Don't forget to replace `exampleName` here too. After this has finished, you should now be able to see a bunch of files with .bin extension inside the stock_rom folder of your USB drive.
+5. Turn off the phone.
+6. Run `mtk rl --skip userdata "/media/user/exampleName/stock_rom"` but don't forget to replace `exampleName`. Connect the cable to your phone and wait for the command to finish.
+7. Run `mtk r preloader "/media/user/exampleName/stock_rom/preloader.bin" --parttype=boot1`. Don't forget to replace `exampleName` here too. After this has finished, you should now be able to see a bunch of files with .bin extension inside the stock_rom folder of your USB drive.
 
 
 **Alternative Method:**
