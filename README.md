@@ -167,7 +167,7 @@ This will factory reset your phone and you will lose your data!
 
 **Note:** Before flashing a new ROM, if you have the `F21 Pro`[^Bands] and live in US/Canada and want to flash the American bands, jump to [Flash American bands on F21 Pro](#flash-american-bands-on-f21-pro)
 
-**Note 2:** Some F21 Pro users might have TWRP installed. You will need to [remove TWRP](#remove-twrp-from-f21-pro) in order to flash Dumbdroid.
+**Note 2:** Some F21 Pro users might have previously installed TWRP. You will need to [remove TWRP](#remove-twrp-from-f21-pro) in order to flash Dumbdroid.
 
 There are a few LineageOS ROMs available that you can try. I'm going to flash Dumbdroid as it's currently the best option for these keypad phones.
 
