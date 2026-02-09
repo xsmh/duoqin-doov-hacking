@@ -113,7 +113,7 @@ Hold the `Shift` key while pressing the `Restart` button and keep holding the ke
 
 **Option 2:** Reboot your computer and go into the BIOS. Disable `Secure Boot` and change the boot order to make the USB drive the first option. Save and reboot. These are some general instructions. This method will depend on your computer model, so you will have to look it up if you don't know how to do it. 
 
-**Finally:** When the computer reboots, you will be greeted with a few options. Press enter on the first option `Start Linux Mint`. Once you have booted into Linux, you will be shown a login screen. Insert the password `user` and hit enter.
+**Finally:** When the computer reboots, you will be greeted with a few options. Press enter on the first option `Start Linux Mint` (If you have already done that before and ran into issues then try picking `Compatibility Mode` instead). Once you have booted into Linux, you will be shown a login screen. Insert the password `user` and hit enter.
 
 ## General info about the Linux ISO
 - There is no persistence. Meaning that any data you store on the Linux ISO itself will be lost after a reboot.
