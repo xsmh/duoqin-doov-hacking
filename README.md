@@ -147,6 +147,7 @@ Do note that this will only backup the firmware, it will not backup personal use
 If your computer has +16GB of RAM, you could skip using the 2nd drive and store the backup directly on the Linux image and upload it to a cloud storage service (like Google Drive) once it's done. You would then skip step 3 and remove the `/media/user/exampleName/` part from the commands and follow the rest as is. I do not recommend this method as it uses RAM as storage and the live image can crash if you run out of it. But it should be safe if you have +32GB RAM.
 
 # Unlock the bootloader
+You need to unlock the bootloader in order to flash the new ROM.   
 This will factory reset your phone and you will lose your data!
 
 ## For most models
