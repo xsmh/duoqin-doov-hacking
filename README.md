@@ -88,7 +88,7 @@ By following this guide, you **agree to proceed at your own risk**. I'm **not re
 # Prerequisites
 1. A Duoqin or Doov brand phone.
 2. A computer with at least 8GB of RAM and three USB-A ports for running the flashing tools.[^Apple] (see footnote for Apple)
-3. Two USB flash drives.[^Drive] Each having a capacity of 12GB or more.[^Capacity]
+3. Two USB flash drives.[^Drive] Each having a capacity of 12GB or more.[^Capacity] Alternatively, you could use only one flash drive if you have +16GB of RAM, check the note in [Make a backup](#make-a-backup) to learn more.
 4. A data transfer USB A-C cable. Strictly A-C, **not** C-C. Make sure the cable you use is capable of transferring data, not just power. [^Cable]
 
 
@@ -134,6 +134,9 @@ Hold the `Shift` key while pressing the `Restart` button and keep holding the ke
 This is the most important step in the guide. It is cruical that you do not skip it.  
 Do note that this will only backup the firmware, it will not backup personal user data if you have any stored on your device.
 
+**Note:**
+If your computer has +16GB of RAM, you could skip using the 2nd drive and store the backup directly on the Linux image and upload it to a cloud storage service (like Google Drive) once it's done. You would then skip step 3 and remove the `/media/user/exampleName/` part from the commands and follow the rest as is. I do not recommend this method as it uses RAM as storage and the live image can crash if you run out of it. But it should be safe if you have +32GB RAM.
+
 1. While booted into the live Linux image, connect your 2nd USB stick. We will use this one for storing the backup. Do **not** unplug the 1st USB stick that has the Linux image on it.
 2. Open the terminal in the Linux ISO.
 3. Type `lsblk` and hit enter. Under `MOUNTPOINTS` you will see an entry similar to  
@@ -141,10 +144,6 @@ Do note that this will only backup the firmware, it will not backup personal use
 4. Run `mkdir "/media/user/exampleName/stock_rom"` but replace `exampleName` in the path with whatever your drive name was from the previous step.
 5. Run `mtk rl --skip userdata "/media/user/exampleName/stock_rom"` but don't forget to replace `exampleName`. Connect the cable to your phone while it is **turned off** and wait for the command to finish running.
 6. Run `mtk r preloader "/media/user/exampleName/stock_rom/preloader.bin" --parttype=boot1`. Don't forget to replace `exampleName` here too. After this has finished, you should now be able to see a bunch of files with .bin extension inside the stock_rom folder of your USB drive.
-
-
-**Alternative Method:**
-If your computer has +16GB of RAM, you could skip using the 2nd drive and store the backup directly on the Linux image and upload it to a cloud storage service (like Google Drive) once it's done. You would then skip step 3 and remove the `/media/user/exampleName/` part from the commands and follow the rest as is. I do not recommend this method as it uses RAM as storage and the live image can crash if you run out of it. But it should be safe if you have +32GB RAM.
 
 # Unlock the bootloader
 You need to unlock the bootloader in order to flash the new ROM.   
