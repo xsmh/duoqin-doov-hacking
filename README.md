@@ -109,7 +109,7 @@ To simplify it I have created a customized Linux ISO that comes with the tools y
 There are two ways you could go about this.
 
 **Option 1:** 
-Hold the `Shift` key while pressing the `Restart` button and keep holding the key until Windows prompts you to choose an option. Click `Use a device` and then click `Removable Device`. Windows should now reboot into the USB drive.
+Hold the `Shift` key while pressing the `Restart` button and wait until Windows prompts you to choose an option. Click `Use a device` and then click `Removable Device`. Windows should now reboot into the USB drive.
 
 **Option 2:** Reboot your computer and go into the BIOS. Disable `Secure Boot` and change the boot order to make the USB drive the first option. Save and reboot. These are some general instructions. This method will depend on your computer model, so you will have to look it up if you don't know how to do it. 
 
@@ -137,12 +137,12 @@ Do note that this will only backup the firmware, it will not backup personal use
 **Note:**
 If your computer has +16GB of RAM, you could skip using the 2nd drive and store the backup directly on the Linux image and upload it to a cloud storage service (like Google Drive) once it's done. You would then skip step 3 and remove the `/media/user/exampleName/` part from the commands and follow the rest as is. I do not recommend this method as it uses RAM as storage and the live image can crash if you run out of it. But it should be safe if you have +32GB RAM.
 
-1. While booted into the live Linux image, connect your 2nd USB stick. We will use this one for storing the backup. Do **not** unplug the 1st USB stick that has the Linux image on it.
+1. While booted into the live Linux image, connect your 2nd USB stick and wait for a notification in the top right corner of the screen that says `Volume mounted`. This 2nd USB stick should previously be formatted to exFAT (**not** FAT32) We will use this one for storing the backup. Do **not** unplug the 1st USB stick that has the Linux image on it.
 2. Open the terminal in the Linux ISO.
 3. Type `lsblk` and hit enter. Under `MOUNTPOINTS` you will see an entry similar to  
-`/media/user/exampleName`. In your case `exampleName` will be whatever your USB drive name is. Take note of this path as we will use it in the next step.
-4. Run `mkdir "/media/user/exampleName/stock_rom"` but replace `exampleName` in the path with whatever your drive name was from the previous step.
-5. Run `mtk rl --skip userdata "/media/user/exampleName/stock_rom"` but don't forget to replace `exampleName`. Connect the cable to your phone while it is **turned off** and wait for the command to finish running.
+`/media/user/exampleName`. In your case `exampleName` will be whatever your USB drive name is. Take note of this path as we will use it in the next step. Note: Sometimes you might see more than one mountpoint that looks similar but with a different name like `/media/user/differentName`, we want the one that has the flash drive's name, and not something else like your computer's internal drive.
+4. Run `mkdir "/media/user/exampleName/stock_rom"` but replace `exampleName` in the path with whatever your drive name was from the previous step. This command creates the folder we will be using to store our backup in.
+5. Run `mtk rl --skip userdata "/media/user/exampleName/stock_rom"` but don't forget to replace `exampleName`. Connect the cable to your phone while it is **turned off** and wait for the command to finish running. This will take roughly 10 minutes and will show this message once it is done `DaHandler - All Dumped partitions success.`. If the command ran into any errors at any point, you probably don't have enough storage on your 2nd USB drive (possibly due to it being formatted as FAT32) and you should not proceed until you resolve the issue, even if you see the success message at the end. You can double check to see if the files were actually made inside the stock_rom folder of the USB drive using the file explorer.
 6. Run `mtk r preloader "/media/user/exampleName/stock_rom/preloader.bin" --parttype=boot1`. Don't forget to replace `exampleName` here too. After this has finished, you should now be able to see a bunch of files with .bin extension inside the stock_rom folder of your USB drive.
 
 # Unlock the bootloader
@@ -185,14 +185,16 @@ There are a few LineageOS ROMs available that you can try. I'm going to flash Du
 
 # Enter fastboot
 If you need to enter fastboot: 
-1. Turn the phone off if it is not already.
+1. Turn off the phone if it is not already.
 2. Run `python3 mtkfastboot.py`.
 3. Conncect the cable and wait until the command forces the device to reboot into fastboot. You should see a text that says "fastboot" at the bottom left of the screen.
 
 # Recover from backup
 
 If you would like to recover from your backup, assuming your backup is on your USB stick, run  
-`mtk wl "/media/user/exampleName/stock_rom"`. Don't forget to replace `exampleName` with the actual name of your drive as mentioned in the [Make a backup](#make-a-backup) section.
+`mtk wl "/media/user/exampleName/stock_rom"` and then connect your cable while the phone is **turned off**. Don't forget to replace `exampleName` with the actual name of your drive as mentioned in the [Make a backup](#make-a-backup) section. This should take about 10 minutes to flash. Once it has finished running, unplug the cable and turn on the phone. 
+
+**Note:** If you encounter the following error message, ignore it: `Error: couldnt detect partition: partitionName, skipping`.
 
 # Remove TWRP from F21 Pro
 If you come from that one infamous guide on XDA where they guide you to install TWRP without making a backup. You have probably been stuck trying to flash Dumbdroid. That's because fastboot**D** is broken on that particular installation of TWRP.
@@ -200,7 +202,7 @@ If you come from that one infamous guide on XDA where they guide you to install 
 Because there are different hardware revisions of the F21 Pro, I cannot guarantee that this solution will work. That's why it's essential to make a backup first. If it does not work for you then you will need to find a boot image that's compatible with your device and does not have TWRP installed.
 
 1. Make sure that you have [made a backup](#make-a-backup).
-2. Turn the phone off.
+2. Turn off the phone.
 3. Run `mtk w boot TWRPless_F21_Boot/boot_a.bin`.
 4. Connect the cable and wait for the command to finish.
 
