@@ -1,5 +1,5 @@
 # Duoqin / Doov Hacking
-This is a documentation for hacking Duoqin / Doov brand phones.
+This is a documentation for hacking Duoqin (Qin) / Doov brand phones.
 
 # Support Me
 If this saved you time and effort, I’d appreciate your support on Ko-fi.
