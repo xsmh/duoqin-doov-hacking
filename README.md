@@ -135,7 +135,7 @@ This is the most important step in the guide. It is cruical that you do not skip
 Do note that this will only backup the firmware, it will not backup personal user data if you have any stored on your device.
 
 **Note:**
-If your computer has +16GB of RAM, you could skip using the 2nd drive and store the backup directly on the Linux image and upload it to a cloud storage service (like Google Drive) once it's done. You would then skip step 1 & 3 and remove the `/media/user/exampleName/` part from the commands and follow the rest as is. I do not recommend this method as it uses RAM as storage and the live image can crash if you run out of it. But it should be safe if you have +32GB RAM.
+If your computer has +16GB of RAM, you could skip using the 2nd drive and store the backup directly on the Linux image and upload it to a cloud storage service (like Google Drive) once it's done (keep in mind the Linux ISO would lose all data after a reboot). You would then skip step 1 & 3 and remove the `/media/user/exampleName/` part from the commands and follow the rest as is. I do not recommend this method as it uses RAM as storage and the live image can crash if you run out of it. But it should be safe if you have +32GB RAM.
 
 1. While booted into the live Linux image, connect your 2nd USB stick and wait for a notification in the top right corner of the screen that says `Volume mounted`. This 2nd USB stick should previously be formatted to exFAT (**not** FAT32), we will use this one for storing the backup. Do **not** unplug the 1st USB stick that has the Linux image on it.
 2. Open the terminal in the Linux ISO by clicking the black square icon in the taskbar.
