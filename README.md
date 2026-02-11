@@ -285,7 +285,8 @@ You can pick one of the following options to fix it.
 But this is the simpler solution and it would be great if more people could test it. Make sure to have a backup first.
 1. [Enter fastboot](#enter-fastboot)
 2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
-3. Run `fastboot delete-logical-partition product`.
+3. Run `fastboot getvar current-slot` to check which slot is currently active (`a` or `b`). Take note of the active slot as we will be using it in the next step.
+4. Run `fastboot delete-logical-partition product_a` if your active slot was `a` in the previous step, otherwise replace `product_a` with `product_b` in the command.
 
 You can now repeat steps 5-6 from [Flash the new ROM](#flash-new-rom) section.
 
