@@ -147,7 +147,7 @@ If your computer has +16GB of RAM, you could skip using the 2nd drive and store 
 
 # Unlock the bootloader
 You need to unlock the bootloader in order to flash the new ROM.   
-This will factory reset your phone and you will lose your data!
+⚠️This will factory reset your phone and you will lose your data!
 
 ## For most models
 1. [Enter fastboot](#enter-fastboot).
@@ -190,6 +190,7 @@ If you need to enter fastboot:
 3. Conncect the cable and wait until the command forces the device to reboot into fastboot. You should see a text that says "fastboot" at the bottom left of the screen.
 
 # Recover from backup
+⚠️This will factory reset your phone and you will lose your data!  
 
 If you would like to recover from your backup, assuming your backup is on your USB stick, run  
 `mtk wl "/media/user/exampleName/stock_rom"` and then connect your cable while the phone is **turned off**. Don't forget to replace `exampleName` with the actual name of your drive as mentioned in the [Make a backup](#make-a-backup) section. This should take about 10 minutes to flash. Once it has finished running, unplug the cable and turn on the phone. 
