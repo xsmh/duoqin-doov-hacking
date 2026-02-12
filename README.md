@@ -344,7 +344,7 @@ Your device will boot in 5 seconds
 
 ## Preloader - [LIB]: Status: Handshake failed
 Assuming you are using the Linux ISO in this guide and not some other OS:
-1. Make sure your cable can transfer data, not just power.
+1. Make sure your cable matches the description in [Prerequisites](#prerequisites).
 2. Press CTRL+C to kill mtkclient.
 3. Unplug the cable.
 4. Rerun the command.
