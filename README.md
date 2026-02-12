@@ -36,8 +36,8 @@ If this saved you time and effort, I’d appreciate your support on Ko-fi.
       + [Solution](#solution-1)
          - [Option 1: Delete product partition (Experimental)](#option-1-delete-product-partition-experimental)
          - [Option 2: Delete COW partitions](#option-2-delete-cow-partitions)
-            * [For `cow` partition that are in slot `a` (.e.g `system_a-cow`)](#for-cow-partition-that-are-in-slot-a-eg-system_a-cow)
-            * [For `cow` partition that are in slot `b` (.e.g `system_b-cow`)](#for-cow-partition-that-are-in-slot-b-eg-system_b-cow)
+            * [For `cow` partitions that are in slot `a` (.e.g `system_a-cow`)](#for-cow-partitions-that-are-in-slot-a-eg-system_a-cow)
+            * [For `cow` partitions that are in slot `b` (.e.g `system_b-cow`)](#for-cow-partitions-that-are-in-slot-b-eg-system_b-cow)
             * [Finally](#finally)
    * [Dm-verity corruption](#dm-verity-corruption)
       + [Solution](#solution-2)
@@ -67,7 +67,7 @@ The guide has been tested on the following devices:
 - R17 (Z17) Pro (3.5 inch screen)
 
 # Device button combinations 
-We won't be using any of the button combos in this guide but they are useful to know sometimes.
+We won't be using any of the button combos in this guide, but they are useful to know sometimes.
 | Model | BROM (bootrom) | Recovery |
 | :---  | :--- | :--- |
 | **F21 Pro** | `menu` + `back` (top two buttons) | `menu` + `power` + `*`, wait until android logo appears and then hold `power` + `up` |
@@ -80,7 +80,7 @@ We won't be using any of the button combos in this guide but they are useful to 
 # Warning  ⚠️ ⚠️ ⚠️
 - Do **NOT** use AI chatbots for this unless you want a bricked device.
 - Do **NOT** skip making a backup. I cannot help you if you brick your device and do not have a backup.
-- Do **NOT** delete or flash the preloader. Recovering from a broken preloader is extremely difficult if not impossible. Especially without a backup.
+- Do **NOT** delete or flash the preloader. Recovering from a broken preloader is extremely difficult, if not impossible. Especially without a backup.
 
 Flashing your device can **brick your phone** if done incorrectly.  
 By following this guide, you **agree to proceed at your own risk**. I'm **not responsible** for any damage, data loss, or other issues that may occur.  
@@ -113,11 +113,11 @@ Hold the `Shift` key while pressing the `Restart` button and wait until Windows 
 
 **Option 2:** Reboot your computer and go into the BIOS. Disable `Secure Boot` and change the boot order to make the USB drive the first option. Save and reboot. These are some general instructions. This method will depend on your computer model, so you will have to look it up if you don't know how to do it. 
 
-**Finally:** When the computer reboots, you will be greeted with a few options. Press enter on the first option `Start Linux Mint` (If you have already done that before and ran into issues then try picking `Compatibility Mode` instead). Once you have booted into Linux, you will be shown a login screen. Insert the password `user` and hit enter.
+**Finally:** When the computer reboots, you will be greeted with a few options. Press enter on the first option `Start Linux Mint` (If you have already done that before and ran into issues, then try picking `Compatibility Mode` instead). Once you have booted into Linux, you will be shown a login screen. Insert the password `user` and hit enter.
 
 ## General info about the Linux ISO
 - There is no persistence. Meaning that any data you store on the Linux ISO itself will be lost after a reboot.
-- Wi-Fi may not work on some computer models due to unavaialble proprietary drivers. In which case you will have to either use an ethernet cable or transfer data via an external drive.
+- Wi-Fi may not work on some computer models due to unavailable proprietary drivers. In which case you will have to either use an Ethernet cable or transfer data via an external drive.
 - Includes empty vbmeta file, American bands partitions, python script to force fastboot mode, and an `F21 Pro` boot image without TWRP installed.
 - There are 4 pre-installed programs that you can run with the following commands from the terminal: 
  1. `adb`
@@ -131,7 +131,7 @@ Hold the `Shift` key while pressing the `Restart` button and wait until Windows 
 
 # Make a backup
 
-This is the most important step in the guide. It is cruical that you do not skip it.  
+This is the most important step in the guide. It is crucial that you do not skip it.  
 Do note that this will only backup the firmware, it will not backup personal user data if you have any stored on your device.
 
 **Note:**
@@ -140,7 +140,7 @@ If your computer has +16GB of RAM, you could skip using the 2nd drive and store 
 1. While booted into the live Linux image, connect your 2nd USB stick and wait for a notification in the top right corner of the screen that says `Volume mounted`. This 2nd USB stick should previously be formatted to exFAT (**not** FAT32), we will use this one for storing the backup. Do **not** unplug the 1st USB stick that has the Linux image on it.
 2. Open the terminal in the Linux ISO by clicking the black square icon in the taskbar.
 3. Type `lsblk` and hit enter. Under `MOUNTPOINTS` you will see an entry similar to  
-`/media/user/exampleName`. In your case `exampleName` will be whatever your USB drive name is. Take note of this path as we will use it in the next step. Note: Sometimes you might see more than one mountpoint that looks similar but with a different name like `/media/user/differentName`, we want the one that has the flash drive's name, and not something else like your computer's internal drive.
+`/media/user/exampleName`. In your case `exampleName` will be whatever your USB drive name is. Take note of this path as we will use it in the next step. Note: Sometimes you might see more than one mountpoint that looks similar but with a different name like `/media/user/differentName`, we want the one that has the flash drive's name and not something else like your computer's internal drive.
 4. Run `mkdir "/media/user/exampleName/stock_rom"` but replace `exampleName` in the path with whatever your drive name was from the previous step. This command creates the folder we will be using to store our backup in.
 5. To make the backup, run `mtk rl --skip userdata "/media/user/exampleName/stock_rom"` but don't forget to replace `exampleName`. Connect the cable to your phone while it is **turned off** and wait for the command to finish running. This will take roughly 10 minutes and will show this message once it is done `DaHandler - All Dumped partitions success`. If the command ran into any errors at any point, you probably don't have enough storage on your 2nd USB drive (possibly due to it being formatted as FAT32) and you should not proceed until you resolve the issue, even if you see the success message at the end. You can double check to see if the files were actually made inside the stock_rom folder of the USB drive using the file explorer, but keep in mind that this does not mean they were made correctly if you did run into any errors.
 6. To backup the preloader, run `mtk r preloader "/media/user/exampleName/stock_rom/preloader.bin" --parttype=boot1`. Don't forget to replace `exampleName` here too. After this has finished, you should now be able to see a bunch of files with .bin extension inside the stock_rom folder of your USB drive.
@@ -195,7 +195,7 @@ If you need to enter fastboot:
 If you would like to recover from your backup, assuming your backup is on your USB stick, run  
 `mtk wl "/media/user/exampleName/stock_rom"` and then connect your cable while the phone is **turned off**. Don't forget to replace `exampleName` with the actual name of your drive as mentioned in the [Make a backup](#make-a-backup) section. This should take about 10 minutes to flash. Once it has finished running, unplug the cable and turn on the phone. 
 
-**Note:** If you encounter the following error message, ignore it: `Error: couldnt detect partition: partitionName, skipping`.
+**Note:** If you encounter the following error message, ignore it: `Error: couldn't detect partition: partitionName, skipping`.
 
 # Remove TWRP from F21 Pro
 If you come from that one infamous guide on XDA where they guide you to install TWRP without making a backup. You have probably been stuck trying to flash Dumbdroid. That's because fastboot**D** is broken on that particular installation of TWRP.
@@ -274,7 +274,7 @@ You are probably trying to flash the `system` partition from fastboot instead of
 Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D** (colored text on black background).
 
 ## FAILED (remote: 'Not enough space to resize partition')
-On some devices like the F21 Pro 3GB model you might run into this error when you try to flash the system partition with Dumbdroid.
+On some devices like the F21 Pro 3GB model, you might run into this error when you try to flash the system partition with Dumbdroid.
 
 ### Solution
 
@@ -282,9 +282,9 @@ You can pick one of the following options to fix it.
 
 #### Option 1: Delete product partition (Experimental)
 **Warning**: Deleting the product partition has not been tested extensively. The side effects on the newly installed ROM are unknown. Usually it is recommended to flash a smaller product image instead.
-But this is the simpler solution and it would be great if more people could test it. Make sure to have a backup first.
+But this is the simpler solution, and it would be great if more people could test it. Make sure to have a backup first.
 1. [Enter fastboot](#enter-fastboot)
-2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
+2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**,.
 3. Run `fastboot getvar current-slot` to check which slot is currently active (`a` or `b`). Take note of the active slot as we will be using it in the next step.
 4. Run `fastboot delete-logical-partition product_a` if your active slot was `a` in the previous step, otherwise replace `product_a` with `product_b` in the command.
 
@@ -295,7 +295,7 @@ You can now repeat steps 5-6 from [Flash the new ROM](#flash-new-rom) section.
 2. Run `fastboot getvar all` and check if you have any partitions with the name ending with `cow`. Example: `system_a-cow`. If you have them proceed to the next step, otherwise ignore this option and use [Option 1](#option-1-delete-product-partition-experimental) instead.
 3. Run `fastboot getvar current-slot` to check which slot is currently active (`a` or `b`). Take note of the active slot as we will be using it later.
 
-##### For `cow` partition that are in slot `a` (.e.g `system_a-cow`)
+##### For `cow` partitions that are in slot `a` (.e.g `system_a-cow`)
 
 1. Run `fastboot set_active a` to set the active slot to `a`.
 2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
@@ -303,7 +303,7 @@ You can now repeat steps 5-6 from [Flash the new ROM](#flash-new-rom) section.
 4. Repeat the previous step for each `cow` partition in the `a` slot.
 
 
-##### For `cow` partition that are in slot `b` (.e.g `system_b-cow`)
+##### For `cow` partitions that are in slot `b` (.e.g `system_b-cow`)
 1. Run `fastboot set_active b` to set the active slot to `b`.
 2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
 3. Use `fastboot delete-logical-partition examplePartition` to delete the desired `cow` partition. Replace `examplePartition` with the name of the `cow` partition you want to delete (e.g. `system_b-cow`).
@@ -311,7 +311,7 @@ You can now repeat steps 5-6 from [Flash the new ROM](#flash-new-rom) section.
 
 ##### Finally
 1. Switch back to your initial active slot with the `fastboot set_active exampleSlot` command, replace `exampleSlot` with `a` or `b` depending on which one was active before deleting the cow partition.
-2. repeat steps 5-6 from [Flash the new ROM](#flash-new-rom) section.
+2. Repeat steps 5-6 from [Flash the new ROM](#flash-new-rom) section.
 
 
 ## Dm-verity corruption
