@@ -24,6 +24,7 @@ This is a documentation for hacking Duoqin (Qin) / Doov brand phones.
    * [Notes ](#notes)
    * [Flash](#flash)
 - [Common errors](#common-errors)
+   * [Error: write_sparse_skip_chunk: don't care size XXXXXXXXX is not a multiple of the block size XXXX](#error-write_sparse_skip_chunk-dont-care-size-xxxxxxxxx-is-not-a-multiple-of-the-block-size-xxxx)
    * [FAILED (remote: 'This partition doesn't exist')](#failed-remote-this-partition-doesnt-exist)
    * [FAILED (remote: 'Not enough space to resize partition')](#failed-remote-not-enough-space-to-resize-partition)
       + [Solution](#solution-1)
