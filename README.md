@@ -259,6 +259,9 @@ This covers most T-Mobile and Verizon users. In addition to some AT&T support de
 
 # Common errors
 
+## Error: write_sparse_skip_chunk: don't care size XXXXXXXXX is not a multiple of the block size XXXX
+You probably didn't unzip the ROM file you are trying to flash. Unzip and try again with the unzipped file.
+
 ## FAILED(remote: 'Erase is not allowed on locked devices')
 You have not unlocked the bootloader because you probably missed a step in [Unlock the bootloader](#unlock-the-bootloader). Go back and redo the steps in that section.
 
