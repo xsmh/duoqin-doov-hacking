@@ -198,7 +198,7 @@ Because there are different hardware revisions of the F21 Pro, I cannot guarante
 
 1. Make sure that you have [made a backup](#make-a-backup).
 2. Turn off the phone.
-3. Run `mtk w boot TWRPless_F21_Boot/boot_a.bin`.
+3. Run `mtk w boot_a TWRPless_F21_Boot/boot_a.bin`.
 4. Connect the cable and wait for the command to finish.
 
 TWRP should now be gone.
