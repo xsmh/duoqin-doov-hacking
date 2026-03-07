@@ -126,8 +126,9 @@ Hold the `Shift` key while pressing the `Restart` button and wait until Windows 
 
 # Make a backup
 
-This is the most important step in the guide. It is crucial that you do not skip it.  
-Do note that this will only backup the firmware, it will not backup personal user data if you have any stored on your device.
+> [!IMPORTANT] 
+> This is the most important step in the guide. It is crucial that you do not skip it.  
+> Do note that this will only backup the firmware, it will not backup personal user data if you have any stored on your device.
 
 > [!NOTE]
 If your computer has +16GB of RAM, you could skip using the 2nd drive and store the backup directly on the Linux image and upload it to a cloud storage service (like Google Drive) once it's done (keep in mind the Linux ISO would lose all data after a reboot). You would then skip step 1 & 3 and remove the `/media/user/exampleName/` part from the commands and follow the rest as is. I do not recommend this method as it uses RAM as storage and the live image can crash if you run out of it. But it should be safe if you have +32GB RAM.
