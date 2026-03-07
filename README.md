@@ -179,7 +179,8 @@ There are a few LineageOS ROMs available that you can try. I'm going to flash Du
 5. After the download has finished, extract (unzip) the file by right clicking on it and then clicking `Extract here`. Do **NOT** simply rename it to .img from .img.gz.
 6. Run this command from fastboot**D**  
 `fastboot flash system "Downloads/???.img"` but replace `???` with the actual filename and wait for it to finish. 
-    > [!NOTE] The `"Downloads/???.img"` path assumes you extracted the DumberOS image inside the Downloads folder of the live Linux image.
+    > [!NOTE] 
+    > The `"Downloads/???.img"` path assumes you extracted the DumberOS image inside the Downloads folder of the live Linux image.
 8. Run `fastboot reboot` and wait for the device to reboot. If Orange State warning appears, press the power button to proceed and wait 5-10 minutes for the new OS to boot.
 
 
@@ -195,7 +196,8 @@ If you need to enter fastboot:
 If you would like to recover from your backup, assuming your backup is on your USB stick, run  
 `mtk wl "/media/user/exampleName/stock_rom"` and then connect your cable while the phone is **turned off**. Don't forget to replace `exampleName` with the actual name of your drive as mentioned in the [Make a backup](#make-a-backup) section. This should take about 10 minutes to flash. Once it has finished running, unplug the cable and turn on the phone. 
 
-> [!NOTE] If you encounter the following error message, ignore it: `Error: couldn't detect partition: partitionName, skipping`.
+> [!NOTE] 
+> If you encounter the following error message, ignore it: `Error: couldn't detect partition: partitionName, skipping`.
 
 # Remove TWRP from F21 Pro
 If you come from that one infamous guide on XDA where they guide you to install TWRP without making a backup. You have probably been stuck trying to flash DumberOS. That's because fastboot**D** is broken on that particular installation of TWRP.
@@ -224,7 +226,8 @@ This covers most T-Mobile and Verizon users. In addition to some AT&T support de
 
 ## Flash
 
-> [!NOTE] If you skip SN Write Tool, you’ll get dummy identifiers that may conflict with other devices.  
+> [!NOTE] 
+> If you skip SN Write Tool, you’ll get dummy identifiers that may conflict with other devices.  
 
 1. Backup identifiers:  
     Go to Settings > About Phone, and write down:
