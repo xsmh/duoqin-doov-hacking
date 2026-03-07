@@ -61,7 +61,8 @@ The guide has been tested on the following devices:
 - R17 (Z17) Pro (3.5 inch screen)
 
 # Device button combinations 
-We won't be using any of the button combos in this guide, but they are useful to know sometimes.
+We won't be using any of the button combos in this guide, but they are useful to know sometimes. 
+
 | Model | BROM (bootrom) | Recovery |
 | :---  | :--- | :--- |
 | **F21 Pro** | `menu` + `back` (top two buttons) | `menu` + `power` + `*`, wait until android logo appears and then hold `power` + `up` |
@@ -128,13 +129,14 @@ Hold the `Shift` key while pressing the `Restart` button and wait until Windows 
 This is the most important step in the guide. It is crucial that you do not skip it.  
 Do note that this will only backup the firmware, it will not backup personal user data if you have any stored on your device.
 
-**Note:**
+> [!NOTE]
 If your computer has +16GB of RAM, you could skip using the 2nd drive and store the backup directly on the Linux image and upload it to a cloud storage service (like Google Drive) once it's done (keep in mind the Linux ISO would lose all data after a reboot). You would then skip step 1 & 3 and remove the `/media/user/exampleName/` part from the commands and follow the rest as is. I do not recommend this method as it uses RAM as storage and the live image can crash if you run out of it. But it should be safe if you have +32GB RAM.
 
 1. While booted into the live Linux image, connect your 2nd USB stick and wait for a notification in the top right corner of the screen that says `Volume mounted`. This 2nd USB stick should previously be formatted to exFAT (**not** FAT32), we will use this one for storing the backup. Do **not** unplug the 1st USB stick that has the Linux image on it.
 2. Open the terminal in the Linux ISO by clicking the black square icon in the taskbar.
 3. Type `lsblk` and hit enter. Under `MOUNTPOINTS` you will see an entry similar to  
-`/media/user/exampleName`. In your case `exampleName` will be whatever your USB drive name is. Take note of this path as we will use it in the next step. Note: Sometimes you might see more than one mountpoint that looks similar but with a different name like `/media/user/differentName`, we want the one that has the flash drive's name and not something else like your computer's internal drive.
+`/media/user/exampleName`. In your case `exampleName` will be whatever your USB drive name is. Take note of this path as we will use it in the next step.  
+    > [!NOTE]  Sometimes you might see more than one mountpoint that looks similar but with a different name like `/media/user/differentName`, we want the one that has the flash drive's name and not something else like your computer's internal drive.
 4. Run `mkdir "/media/user/exampleName/stock_rom"` but replace `exampleName` in the path with whatever your drive name was from the previous step. This command creates the folder we will be using to store our backup in.
 5. To make the backup, run `mtk rl --skip userdata "/media/user/exampleName/stock_rom"` but don't forget to replace `exampleName`. Connect the cable to your phone while it is **turned off** and wait for the command to finish running. This will take roughly 10 minutes and will show this message once it is done `DaHandler - All Dumped partitions success`. If the command ran into any errors at any point, you probably don't have enough storage on your 2nd USB drive (possibly due to it being formatted as FAT32) and you should not proceed until you resolve the issue, even if you see the success message at the end. You can double check to see if the files were actually made inside the stock_rom folder of the USB drive using the file explorer, but keep in mind that this does not mean they were made correctly if you did run into any errors.
 6. To backup the preloader, run `mtk r preloader "/media/user/exampleName/stock_rom/preloader.bin" --parttype=boot1`. Don't forget to replace `exampleName` here too. After this has finished, you should now be able to see a bunch of files with .bin extension inside the stock_rom folder of your USB drive.
@@ -158,9 +160,12 @@ You need to unlock the bootloader in order to flash the new ROM.
 
 # Flash new ROM
 
-**Note:** Before flashing a new ROM, if you have the `F21 Pro`[^Bands] and live in US/Canada and want to flash the American bands, jump to [Flash American bands on F21 Pro](#flash-american-bands-on-f21-pro)
+>[!NOTE] 
+> Before flashing a new ROM, if you have the `F21 Pro`[^Bands] and live in US/Canada and want to flash the American bands, jump to [Flash American bands on F21 Pro](#flash-american-bands-on-f21-pro)
 
-**Note 2:** Some F21 Pro users might have previously installed TWRP. You will need to [remove TWRP](#remove-twrp-from-f21-pro) in order to flash DumberOS.
+>[!NOTE]
+> Some F21 Pro users might have previously installed TWRP. You will need to [remove TWRP](#remove-twrp-from-f21-pro) in order to flash DumberOS.
+
 
 There are a few LineageOS ROMs available that you can try. I'm going to flash DumberOS as it's currently the best option for these keypad phones.
 
@@ -173,7 +178,8 @@ There are a few LineageOS ROMs available that you can try. I'm going to flash Du
 4. Download the appropriate *.img.gz from the [latest build of DumberOS](https://github.com/miki151/dumbdroid_build/releases/latest) onto the Linux ISO or the 2nd USB drive. Choose between G-apps and Vanilla (Micro-g). For the F21 pro use the "30" version, for all other phones use "31". 
 5. After the download has finished, extract (unzip) the file by right clicking on it and then clicking `Extract here`. Do **NOT** simply rename it to .img from .img.gz.
 6. Run this command from fastboot**D**  
-`fastboot flash system "Downloads/???.img"` but replace `???` with the actual filename and wait for it to finish. **Note:** The `"Downloads/???.img"` path assumes you extracted the DumberOS image inside the Downloads folder of the live Linux image.
+`fastboot flash system "Downloads/???.img"` but replace `???` with the actual filename and wait for it to finish. 
+    > [!NOTE] The `"Downloads/???.img"` path assumes you extracted the DumberOS image inside the Downloads folder of the live Linux image.
 8. Run `fastboot reboot` and wait for the device to reboot. If Orange State warning appears, press the power button to proceed and wait 5-10 minutes for the new OS to boot.
 
 
@@ -189,7 +195,7 @@ If you need to enter fastboot:
 If you would like to recover from your backup, assuming your backup is on your USB stick, run  
 `mtk wl "/media/user/exampleName/stock_rom"` and then connect your cable while the phone is **turned off**. Don't forget to replace `exampleName` with the actual name of your drive as mentioned in the [Make a backup](#make-a-backup) section. This should take about 10 minutes to flash. Once it has finished running, unplug the cable and turn on the phone. 
 
-**Note:** If you encounter the following error message, ignore it: `Error: couldn't detect partition: partitionName, skipping`.
+> [!NOTE] If you encounter the following error message, ignore it: `Error: couldn't detect partition: partitionName, skipping`.
 
 # Remove TWRP from F21 Pro
 If you come from that one infamous guide on XDA where they guide you to install TWRP without making a backup. You have probably been stuck trying to flash DumberOS. That's because fastboot**D** is broken on that particular installation of TWRP.
@@ -218,7 +224,8 @@ This covers most T-Mobile and Verizon users. In addition to some AT&T support de
 
 ## Flash
 
-**Note:** If you skip SN Write Tool, you’ll get dummy identifiers that may conflict with other devices.
+> [!NOTE] If you skip SN Write Tool, you’ll get dummy identifiers that may conflict with other devices.  
+
 1. Backup identifiers:  
     Go to Settings > About Phone, and write down:
 
@@ -278,8 +285,11 @@ On some devices like the F21 Pro 3GB model, you might run into this error when y
 You can pick one of the following options to fix it. 
 
 #### Option 1: Delete product partition (Experimental)
-**Warning**: Deleting the product partition has not been tested extensively. The side effects on the newly installed ROM are unknown. Usually it is recommended to flash a smaller product image instead.
-But this is the simpler solution, and it would be great if more people could test it. Make sure to have a backup first.
+
+> [!WARNING] 
+> Deleting the product partition has not been tested extensively. The side effects on the newly installed ROM are unknown. Usually it is recommended to flash a smaller product image instead.
+> But this is the simpler solution, and it would be great if more people could test it. Make sure to have a backup first.  
+
 1. [Enter fastboot](#enter-fastboot)
 2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**,.
 3. Run `fastboot getvar current-slot` to check which slot is currently active (`a` or `b`). Take note of the active slot as we will be using it in the next step.
