@@ -352,6 +352,9 @@ Follow step 3-4 from [this section](#for-f21-pro-and-similar-models-where-press-
 2. Run `mtk w vbmeta vbmeta_a.bin`.
 3. Connect the cable and wait for the command to finish. Then unplug and reboot the phone to see if the message is gone.
 
+> [!NOTE]
+> Alternatively you could try `mtk da vbmeta 3`
+
 ## Orange state warning 
 Your device may show this message on boot. This is normal as long as your device boots after you press the power button and wait 5 seconds.
 You don't need to remove it but you can if you wish to, although it may require some effort. Follow [this guide](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO?tab=readme-ov-file#removing-the-orange-state-warning-text) if you are interested.
