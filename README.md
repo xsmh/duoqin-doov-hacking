@@ -352,7 +352,7 @@ Follow step 3-4 from [this section](#for-f21-pro-and-similar-models-where-press-
 2. Run `mtk w vbmeta vbmeta_a.bin`.
 3. Connect the cable and wait for the command to finish. Then unplug and reboot the phone to see if the message is gone.
 
-> [!NOTE]
+> [!TIP]
 > Alternatively you could try `mtk da vbmeta 3`
 
 ## Orange state warning 
