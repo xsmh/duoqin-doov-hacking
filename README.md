@@ -200,6 +200,9 @@ If you need to enter fastboot:
 2. Run `python3 mtkfastboot.py`.
 3. Conncect the cable and wait until the command forces the device to reboot into fastboot. You should see a text that says "fastboot" at the bottom left of the screen.
 
+> [!TIP]
+> Alternatively yuu could try `mtk payload --metamode FASTBOOT` in BROM mode.
+
 # Recover from backup
 ⚠️This will factory reset your phone and you will lose your data!  
 
