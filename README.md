@@ -145,6 +145,9 @@ Hold the `Shift` key while pressing the `Restart` button and wait until Windows 
 > [!NOTE]
 If your computer has +16GB of RAM, you could skip using the 2nd drive and store the backup directly on the Linux image and upload it to a cloud storage service (like Google Drive) once it's done (keep in mind the Linux ISO would lose all data after a reboot). I do not recommend this method as it uses RAM as storage and the live image can crash if you run out of it. But it should be safe if you have +32GB RAM. Follow **Option 2** if you want to go this route.
 
+> [!WARNING]
+> If you have more than one device and you have already made a backup for one, you should change `stock_rom` in the commands with a different folder name (e.g. `stock_rom2`) so that you do not overwrite the already existing backup.
+
 ## Option 1 (Recommended)
 1. While booted into the live Linux image, connect your 2nd USB stick and wait for a notification in the top right corner of the screen that says `Volume mounted`. This 2nd USB stick should previously be formatted to exFAT (**not** FAT32), we will use this one for storing the backup. Do **not** unplug the 1st USB stick that has the Linux image on it.
 2. Open the terminal in the Linux ISO by clicking the black square icon in the taskbar.
