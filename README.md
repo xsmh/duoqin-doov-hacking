@@ -69,7 +69,10 @@ The guide has been tested on the following devices:
 - R17 (Z17) Pro (3.5 inch screen)
 
 # Device button combinations 
-We won't be using any of the button combos in this guide, but they are useful to know sometimes. 
+We won't be using any of the button combos in this guide, but they are useful to know sometimes.  
+
+- For BROM mode you will need to run mtkclient first, and then hold the button combo and plug in the cable while still holding the buttons.  
+- Recovery mode is built into the phone and no cable or program is required.  
 
 | Model | BROM (bootrom) | Recovery |
 | :---  | :--- | :--- |
