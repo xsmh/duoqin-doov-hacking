@@ -30,7 +30,6 @@ If this saved you time and effort, I’d appreciate your support on Ko-fi.
 - [Remove TWRP from F21 Pro](#remove-twrp-from-f21-pro)
    * [Solution](#solution)
 - [Flash American bands on F21 Pro](#flash-american-bands-on-f21-pro)
-   * [Notes ](#notes)
    * [Flash](#flash)
 - [Common errors](#common-errors)
    * [Error: write_sparse_skip_chunk: don't care size XXXXXXXXX is not a multiple of the block size XXXX](#error-write_sparse_skip_chunk-dont-care-size-xxxxxxxxx-is-not-a-multiple-of-the-block-size-xxxx)
@@ -235,17 +234,13 @@ TWRP should now be gone.
 
 ⚠️ **Skip this section if you do not live in US/Canada.**
 
-In this section we will go through the process of flashing American bands on the F21 Pro for users who need them. 
+In this section we will go through the process of flashing American bands on the F21 Pro for users who need them.  
 
-## Notes 
-- This section should be followed after [unlocking the bootloader](#unlock-the-bootloader) and **before** [flashing a new ROM](#flash-new-rom) because SN Write Tool does not work with LineageOS/DumberOS.
+- This part should be followed after [unlocking the bootloader](#unlock-the-bootloader) and **before** [flashing a new ROM](#flash-new-rom) because SN Write Tool does not work with LineageOS/DumberOS.
 - Make sure that you have [made a backup](#make-a-backup).
 - Covered LTE Bands: 2, 4, 12, 13, 17, 66, 71  
-This covers most T-Mobile users, in addition to some AT&T support depending on region.  
-
-> [!NOTE]
-> Verizon will not work on DumberOS. As for getting it to work on the stock ROM you will need to flash the 1.1.1 firmware which I won't be covering in this guide. You can look up other guides on how to do that.
-
+This covers most T-Mobile users, in addition to some AT&T support depending on region. 
+- **Verizon** will **not** work on DumberOS. As for getting it to work on the stock ROM you will need to flash the 1.1.1 firmware which I won't be covering in this guide. You can look up other guides on how to do that.
 
 ## Flash
 
