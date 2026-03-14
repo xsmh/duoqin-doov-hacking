@@ -371,11 +371,11 @@ Follow step 3-4 from [this section](#for-f21-pro-and-similar-models-where-press-
 3. Connect the cable and wait for the command to finish. Then unplug and reboot the phone to see if the message is gone.
 
 > [!TIP]
-> Alternatively you could try `mtk da vbmeta 3`
+> Alternatively you could try `mtk da vbmeta 3`.
 
 ## Orange state warning 
 Your device may show this message on boot. This is normal as long as your device boots after you press the power button and wait 5 seconds.
-You don't need to remove it but you can if you wish to, although it may require some effort. Follow [this guide](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO?tab=readme-ov-file#removing-the-orange-state-warning-text) if you are interested.
+You don't need to remove it but you can if you wish to, although it may require some effort. Follow the [AlikornSause guide](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO?tab=readme-ov-file#removing-the-orange-state-warning-text) if you are interested.
 
 ```
 Orange State
@@ -400,8 +400,8 @@ This guide would not have been possible without the amazing contributions from:
 
 [AlikornSause](https://ko-fi.com/alikornsause)  
 [Michal Brzozowski](https://ko-fi.com/dumbdroid)  
-[Deathmist](https://github.com/JamiKettunen/)  
-CatStoleTheCrown
+[Deathmist](https://github.com/JamiKettunen)  
+[CatStoleTheCrown](https://ko-fi.com/storymode)
 
 [^F22]: DumberOS does not work with the F22 non-pro, it uses a 32-bit system and you will have to find a compatible ROM on your own.
 [^Apple]: No Apple junk. Unless it has an Intel CPU, the Linux ISO should work fine then. 
