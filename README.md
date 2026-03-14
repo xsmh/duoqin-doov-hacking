@@ -149,7 +149,7 @@ Hold the `Shift` key while pressing the `Restart` button and wait until Windows 
 > [!NOTE]
 If your computer has +16GB of RAM, you could skip using the 2nd drive and store the backup directly on the Linux image and upload it to a cloud storage service (like Google Drive) once it's done (keep in mind the Linux ISO would lose all data after a reboot). I do not recommend this method as it uses RAM as storage and the live image can crash if you run out of it. But it should be safe if you have +32GB RAM. Follow **Option 2** if you want to go this route.
 
-> [!WARNING]
+> [!CAUTION]
 > If you have more than one device and you have already made a backup for one, you should change `stock_rom` in the commands with a different folder name (e.g. `stock_rom2`) so that you do not overwrite the already existing backup.
 
 ## Option 1 (Recommended): store backup on 2nd USB stick
@@ -171,8 +171,10 @@ If your computer has +16GB of RAM, you could skip using the 2nd drive and store 
 5. Move the stock_rom folder to an external drive or upload it to a cloud storage solution like Google Drive. **Note:** rebooting the Linux ISO will reset the live image and you will lose your backup if you haven't moved it somewhere else.
 
 # Unlock the bootloader
+> [!WARNING]
+> This will factory reset your phone and you will lose your data!
+
 You need to unlock the bootloader in order to flash the new ROM.   
-⚠️This will factory reset your phone and you will lose your data!
 
 ## For most models
 1. [Enter fastboot](#enter-fastboot).
@@ -221,7 +223,9 @@ If you need to enter fastboot:
 > Alternatively you could try `mtk payload --metamode FASTBOOT` in [BROM](#device-button-combinations) mode.
 
 # Recover from backup
-⚠️This will factory reset your phone and you will lose your data!  
+
+> [!WARNING]
+> This will factory reset your phone and you will lose your data!
 
 If you would like to recover from your backup, assuming your backup is on your USB stick, run  
 `mtk wl "/media/user/exampleName/stock_rom"` and then connect your cable while the phone is **turned off**. Don't forget to replace `exampleName` with the actual name of your drive as mentioned in the [Make a backup](#make-a-backup) section. This should take about 10 minutes to flash. Once it has finished running, unplug the cable and turn on the phone. 
@@ -230,6 +234,7 @@ If you would like to recover from your backup, assuming your backup is on your U
 > If you encounter the following error message, ignore it: `Error: couldn't detect partition: partitionName, skipping`.
 
 # Remove TWRP from F21 Pro
+
 If you come from that one infamous guide on XDA where they guide you to install TWRP without making a backup. You have probably been stuck trying to flash DumberOS. That's because fastboot**D** is broken on that particular installation of TWRP.
 ## Solution
 Because there are different hardware revisions of the F21 Pro, I cannot guarantee that this solution will work. That's why it's essential to make a backup first. If it does not work for you then you will need to find a boot image that's compatible with your device and does not have TWRP installed.
@@ -255,7 +260,7 @@ This covers most T-Mobile users, in addition to some AT&T support depending on r
 
 ## Flash
 
-> [!NOTE] 
+> [!CAUTION] 
 > If you skip SN Write Tool, you’ll get dummy identifiers that may conflict with other devices.  
 
 1. Backup identifiers:  
@@ -318,7 +323,7 @@ You can pick one of the following options to fix it.
 
 #### Option 1: Delete product partition (Experimental)
 
-> [!WARNING] 
+> [!CAUTION] 
 > Deleting the product partition has not been tested extensively. The side effects on the newly installed ROM are unknown. Usually it is recommended to flash a smaller product image instead.
 > But this is the simpler solution, and it would be great if more people could test it. Make sure to have a backup first.  
 
