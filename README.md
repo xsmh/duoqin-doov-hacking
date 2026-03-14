@@ -19,8 +19,8 @@ If this saved you time and effort, I’d appreciate your support on Ko-fi.
    * [Boot from USB stick ](#boot-from-usb-stick)
    * [General info about the Linux ISO](#general-info-about-the-linux-iso)
 - [Make a backup](#make-a-backup)
-    * [Option 1 (Recommended)](#option-1-recommended)
-    * [Option 2](#option-2)
+    * [Option 1 (Recommended): store backup on 2nd USB stick](#option-1-recommended-store-backup-on-2nd-usb-stick)
+    * [Option 2: store backup on the live Linux environment](#option-2-store-backup-on-the-live-linux-environment)
 - [Unlock the bootloader](#unlock-the-bootloader)
    * [For most models](#for-most-models)
    * [For F21 Pro and similar models where “press volume up” doesn’t work](#for-f21-pro-and-similar-models-where-press-volume-up-doesnt-work)
@@ -152,7 +152,8 @@ If your computer has +16GB of RAM, you could skip using the 2nd drive and store 
 > [!WARNING]
 > If you have more than one device and you have already made a backup for one, you should change `stock_rom` in the commands with a different folder name (e.g. `stock_rom2`) so that you do not overwrite the already existing backup.
 
-## Option 1 (Recommended)
+## Option 1 (Recommended): store backup on 2nd USB stick
+
 1. While booted into the live Linux image, connect your 2nd USB stick and wait for a notification in the top right corner of the screen that says `Volume mounted`. This 2nd USB stick should previously be formatted to exFAT (**not** FAT32), we will use this one for storing the backup. Do **not** unplug the 1st USB stick that has the Linux image on it.
 2. Open the terminal in the Linux ISO by clicking the black square icon in the taskbar.
 3. Type `lsblk` and hit enter. Under `MOUNTPOINTS` you will see an entry similar to  
@@ -161,7 +162,7 @@ If your computer has +16GB of RAM, you could skip using the 2nd drive and store 
 5. To make the backup, run `mtk rl --skip userdata "/media/user/exampleName/stock_rom"` but don't forget to replace `exampleName`. Connect the cable to your phone while it is **turned off** and wait for the command to finish running. This will take roughly 10 minutes and will show this message once it is done `DaHandler - All Dumped partitions success`. If the command ran into any errors at any point, you probably don't have enough storage on your 2nd USB drive (possibly due to it being formatted as FAT32) and you should not proceed until you resolve the issue, even if you see the success message at the end. You can double check to see if the files were actually made inside the `stock_rom` folder of the USB drive using the file explorer, but keep in mind that this does not mean they were made correctly if you did run into any errors.
 6. To backup the preloader, run `mtk r preloader "/media/user/exampleName/stock_rom/preloader.bin" --parttype=boot1`. Don't forget to replace `exampleName` here too. After this has finished, you should now be able to see a bunch of files with .bin extension inside the stock_rom folder of your USB drive.
 
-## Option 2
+## Option 2: store backup on the live Linux environment
 
 1. Open the terminal in the Linux ISO by clicking the black square icon in the taskbar.
 2. Run `mkdir stock_rom` to create the folder we will be using to store our backup in.
