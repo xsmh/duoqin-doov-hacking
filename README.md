@@ -56,7 +56,7 @@ The guide assumes that you are using Windows 10/11. If you are using Linux, I tr
 If you encounter any problems while following this guide, refer to the [common errors](#common-errors) section. If your issue isn’t listed there, please [open a new issue](https://github.com/xsmh/duoqin-doov-hacking/issues/new) in this repository and include a description of the problem along with the relevant logs.
 
 ## Tested devices 
-The guide has been tested on the following devices:
+The guide has been tested on the following devices but it should work on most other models as well:
 
 **Duoqin:**
 - F21 Pro
