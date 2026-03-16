@@ -291,6 +291,7 @@ This covers most T-Mobile users, in addition to some AT&T support depending on r
 5. **Verify**
     1. Turn the phone on and check Settings > About Phone to confirm your identifiers are restored.
     2. Dial **\*#\*#3646633#\*#\*** to open Engineer Mode. Go to Band Mode, scroll down and confirm bands `2, 4, 12, 13, 17, 66, 71` are active.
+    3. Test calls/texting and internet data on the stock ROM to make sure whatever issue you might face after installing DumberOS isn't related to your carrier.
 
 # Common errors
 
