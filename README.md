@@ -206,7 +206,7 @@ There are a few LineageOS ROMs available that you can try. I'm going to flash Du
 3. Erase user data if you are upgrading from the stock ROM. Updating DumberOS doesn’t require this step. Run the following commands.  
 `fastboot erase userdata`  
 `fastboot erase metadata`
-4. Download the appropriate *.img.gz from the [latest build of DumberOS](https://github.com/miki151/dumbdroid_build/releases/latest) onto the Linux ISO or the 2nd USB drive. Choose between G-apps and Vanilla (Micro-g). For the F21 pro use the "30" version, for all other phones use "31". 
+4. Download the appropriate *.img.gz from the [latest build of DumberOS](https://github.com/miki151/dumbdroid_build/releases/latest) onto the Linux ISO or the 2nd USB drive. Choose between G-apps and Vanilla (Micro-g). For the F21 pro use version **30**. For all other phones use **31**. 
 5. After the download has finished, extract (unzip) the file by right clicking on it and then clicking `Extract here`. Do **NOT** simply rename it to .img from .img.gz.
 6. Run this command from fastboot**D**  
 `fastboot flash system "Downloads/???.img"` but replace `???` with the actual filename and wait for it to finish. **Note:** The `"Downloads/???.img"` path assumes you extracted the DumberOS image inside the Downloads folder of the live Linux image.
@@ -266,7 +266,7 @@ This covers most T-Mobile users, in addition to some AT&T support depending on r
 
 1. **Backup Identifiers**
     1. Go to Settings > About Phone.
-    2. Write down these fields: **IMEI**, **WiFi MAC, **Bluetooth MAC**.
+    2. Write down these fields: **IMEI**, **WiFi MAC**, **Bluetooth MAC**.
 
 2. **Flash LTE Bands**
     1. Run `mtk wl F30_Modem_Files` and wait for it to finish.
