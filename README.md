@@ -95,7 +95,7 @@ By following this guide, you **agree to proceed at your own risk**. I'm **not re
 1. A Duoqin or Doov brand phone.
 2. A computer with at least 8GB of RAM and three USB-A ports for running the flashing tools.[^Apple] (see footnote for Apple)
 3. Two USB flash drives.[^Drive] Each having a capacity of 12GB or more.[^Capacity] Alternatively, you could use only one flash drive if you have +16GB of RAM, check the note in [Make a backup](#make-a-backup) to learn more.
-4. A data transfer USB A-C cable. Strictly A-C, **not** C-C. Make sure the cable you use is capable of transferring data, not just power. [^Cable]
+4. A data transfer USB A-C cable. Strictly A-C, **not** C-C. Make sure the cable you use is capable of transferring data, not just power.[^Cable] No adapters should be used with this cable, it needs to be connected directly to a USB-A port.
 
 
 # Install the flashing tools 
