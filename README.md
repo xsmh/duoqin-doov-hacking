@@ -1,5 +1,5 @@
-# Duoqin / Doov Hacking
-This is a documentation for hacking Duoqin (Qin) / Doov brand phones.
+# Qin/Doov Hacking
+Documentation for hacking Qin (Duoqin) / Doov brand phones.
 
 # Support Me
 If this saved you time and effort, I’d appreciate your support on Ko-fi.
@@ -49,7 +49,7 @@ If this saved you time and effort, I’d appreciate your support on Ko-fi.
 
 
 # Overview
-This documentation has been written to walk the owners of Duoqin / Doov devices through flashing DumberOS (formerly Dumbdroid) or any other compatible ROM of their choice.
+This documentation has been written to walk the owners of Qin/Doov devices through flashing DumberOS (formerly Dumbdroid) or any other compatible ROM of their choice.
 
 The guide assumes that you are using Windows 10/11. If you are using Linux, I trust your ability to figure out the OS specific parts on your own. If you are using macOS, good luck.
 
@@ -58,7 +58,7 @@ If you encounter any problems while following this guide, refer to the [common e
 ## Tested devices 
 The guide has been tested on the following devices but it should work on most other models as well:
 
-**Duoqin:**
+**Qin:**
 - F21 Pro
 - F22 Pro
 - F22[^F22] (see footnote for DumberOS)
@@ -92,7 +92,7 @@ Flashing your device can **brick your phone** if done incorrectly.
 By following this guide, you **agree to proceed at your own risk**. I'm **not responsible** for any damage, data loss, or other issues that may occur.  
 
 # Prerequisites
-1. A Duoqin or Doov brand phone.
+1. A Qin or Doov brand phone.
 2. A computer with at least 8GB of RAM and three USB-A ports[^USB] for running the flashing tools.[^Apple] (see footnote for Apple)
 3. Two USB flash drives.[^Drive] Each having a capacity of 12GB or more.[^Capacity] Alternatively, you could use only one flash drive if you have +16GB of RAM, check the note in [Make a backup](#make-a-backup) to learn more.
 4. A data transfer USB A-C cable. Strictly A-C, **not** C-C. Make sure the cable you use is capable of transferring data, not just power.[^Cable] No adapters should be used with this cable, it needs to be connected directly to a USB-A port.
