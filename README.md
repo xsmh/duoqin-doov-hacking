@@ -95,7 +95,7 @@ By following this guide, you **agree to proceed at your own risk**. I'm **not re
 
 # Prerequisites
 1. A Qin or Doov brand phone.
-2. A computer with at least 8GB of RAM and three USB-A ports[^USB] for running the flashing tools.[^Apple] (see footnote for Apple)
+2. A computer with at least 8GB[^RAM] of RAM and three USB-A ports[^USB] for running the flashing tools.[^Apple] (see footnote for Apple)
 3. Two USB flash drives.[^Drive] Each having a capacity of 12GB or more.[^Capacity] Alternatively, you could use only one flash drive if you have +16GB of RAM, check the note in [Make a backup](#make-a-backup) to learn more.
 4. A data transfer USB A-C cable. Strictly A-C, **not** C-C. Make sure the cable you use is capable of transferring data, not just power.[^Cable] No adapters should be used with this cable, it needs to be connected directly to a USB-A port.
 
@@ -408,6 +408,7 @@ This guide would not have been possible without the amazing contributions from:
 [CatStoleTheCrown](https://ko-fi.com/storymode)
 
 [^F22]: DumberOS does not work with the F22 non-pro, it uses a 32-bit system and you will have to find a compatible ROM on your own.
+[^RAM]: 4GB is also possible but not recommended because the Linux ISO will crash if you download and extract the DumberOS image on it. You will have to download and extract the DumberOS image from your main operating system on your computer. You would then put it on an external drive, reboot into the Linux ISO and flsah the image with the correct path provided.
 [^USB]: At least one USB-A port is required for connecting the phone without adapters because you will most likely run into connection issues if you use an adapter. But you could use an adapter for the USB sticks if you don't have enough USB-A ports on your computer.
 [^Apple]: No Apple junk. Unless it has an Intel CPU, the Linux ISO should work fine then. 
 [^Drive]: Any other type of external storage device works.
