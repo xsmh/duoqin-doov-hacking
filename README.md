@@ -27,6 +27,8 @@ If this saved you time and effort, I’d appreciate your support on Ko-fi.
 - [Flash new ROM](#flash-new-rom)
 - [Enter fastboot](#enter-fastboot)
 - [Recover from backup](#recover-from-backup)
+    * [Recover stock ROM without affecting American bands or other partitions](#recover-stock-rom-without-affecting-american-bands-or-other-partitions)
+    * [Full recovery](#full-recovery)
 - [Remove TWRP from F21 Pro](#remove-twrp-from-f21-pro)
    * [Solution](#solution)
 - [Flash American bands on F21 Pro](#flash-american-bands-on-f21-pro)
@@ -227,8 +229,13 @@ If you need to enter fastboot:
 > [!WARNING]
 > This will factory reset your phone and you will lose your data!
 
-If you would like to recover from your backup, assuming your backup is on your USB stick, run  
-`mtk wl "/media/user/exampleName/stock_rom"` and then connect your cable while the phone is **turned off**. Don't forget to replace `exampleName` with the actual name of your drive as mentioned in the [Make a backup](#make-a-backup) section. This should take about 10 minutes to flash. Once it has finished running, unplug the cable and turn on the phone. 
+## Recover stock ROM without affecting American bands or other partitions
+1. Turn off the phone.
+2. Assuming your backup is stored on your USB drive, Run `mtk w super "/user/media/exampleName/stock_rom/super.bin"` but replace `exampleName` with the name of your drive as mentioned in the [Make a backup](#make-a-backup).
+3. Connect your cable and wait for the command to finish running. Once it's done unplug the cable and turn on the phone.
+
+## Full recovery
+Follow the three steps in the previous subsection but replace the command in the 2nd step with `mtk wl "/media/user/exampleName/stock_rom"`. This should take about 10 minutes to flash.
 
 > [!NOTE] 
 > If you encounter the following error message, ignore it: `Error: couldn't detect partition: partitionName, skipping`.
