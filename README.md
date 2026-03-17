@@ -234,7 +234,7 @@ If you need to enter fastboot:
 2. Assuming your backup is stored on your USB drive, Run `mtk w super "/media/user/exampleName/stock_rom/super.bin"` but replace `exampleName` with the name of your drive as mentioned in [Make a backup](#make-a-backup).
 3. Connect your cable and wait for the command to finish running. Once it's done unplug the cable and turn on the phone.
 
-> [!NOTE]
+> [!TIP]
 > Alternatively you could [enter fastboot](#enter-fastboot) and run `fastboot flash super "/media/user/exampleName/stock_rom/super.bin`.
 
 ## Full recovery
