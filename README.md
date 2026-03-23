@@ -415,7 +415,7 @@ This guide would not have been possible without the amazing contributions from:
 
 [^F22]: DumberOS does not work with the F22 non-pro, it uses a 32-bit system and you will have to find a compatible ROM on your own.
 [^RAM]: 4GB of RAM is also possible but not recommended because the Linux ISO will crash if you download and extract the DumberOS image on it. You will have to download and extract the DumberOS image from your main operating system on your computer. You would then put it on an external drive, reboot into the Linux ISO and flsah the image with the correct path provided.
-[^USB]: At least one USB-A port is required for connecting the phone without adapters because you will most likely run into connection issues if you use an adapter. But you could use an adapter for the USB sticks if you don't have enough USB-A ports on your computer.
+[^USB]: At least one USB-A port is required for connecting the phone without adapters because you will most likely run into connection issues if you use it. But you could use an adapter for the USB sticks if you don't have enough USB-A ports on your computer.
 [^Apple]: No Apple junk. Unless it has an Intel CPU, the Linux ISO should work fine then. 
 [^Drive]: Any other type of external storage device works.
 [^Capacity]: 8 + 12 GB is also fine.
