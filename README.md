@@ -235,7 +235,7 @@ If you need to enter fastboot:
 3. Connect your cable and wait for the command to finish running. Once it's done unplug the cable and turn on the phone.
 
 > [!TIP]
-> Alternatively you could [enter fastboot](#enter-fastboot) and run `fastboot flash super "/media/user/exampleName/stock_rom/super.bin`.
+> Alternatively you could [enter fastboot](#enter-fastboot) and run `fastboot flash super "/media/user/exampleName/stock_rom/super.bin"`.
 
 ## Full recovery
 Follow the three steps in the previous subsection but replace the command in the 2nd step with `mtk wl "/media/user/exampleName/stock_rom"`. This should take about 10 minutes to flash.
