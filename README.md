@@ -81,7 +81,7 @@ We won't be using any of the button combos in this guide, but they are useful to
 | :---  | :--- | :--- |
 | **F21 Pro** | `menu` + `back` (top two buttons) | `menu` + `power` + `*`, wait until android logo appears and then hold `power` + `up` |
 | **F22 Pro** | `menu` + `back` (top two buttons) | - |
-| **F22** | `menu` + `back` (top two buttons) | `power` + `up`|
+| **F22** | `menu` + `back` (top two buttons) | `power` + `up`. To enter fastbootD enter the `Recovery` option and then hold `poewr` + `up` |
 | **R77 Pro** | `call` + `power`| `#` + `power` for 10 seconds (disabled on some units)|
 | **R77** | `call` + `power`| - |
 | **R17 Pro** | `call` + `power`| - |
