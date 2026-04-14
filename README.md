@@ -376,7 +376,7 @@ Or, device will power off in 5s
 Follow step 3-4 from [this section](#for-f21-pro-and-similar-models-where-press-volume-up-doesnt-work). If that doesn't work, you can try this:
 
 1. Turn off the phone.
-2. Run `mtk w vbmeta vbmeta_a.bin`.
+2. Run `mtk w vbmeta_a vbmeta_a.bin`.
 3. Connect the cable and wait for the command to finish. Then unplug and reboot the phone to see if the message is gone.
 
 > [!TIP]
