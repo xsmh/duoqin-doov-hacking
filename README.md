@@ -35,6 +35,7 @@ If this saved you time and effort, I’d appreciate your support on [Ko-fi](http
    * [Flash](#flash)
 - [Common errors](#common-errors)
    * [Error: write_sparse_skip_chunk: don't care size XXXXXXXXX is not a multiple of the block size XXXX](#error-write_sparse_skip_chunk-dont-care-size-xxxxxxxxx-is-not-a-multiple-of-the-block-size-xxxx)
+   * [FAILED (remote: 'Erase is not allowed on locked devices')](#failed-remote-erase-is-not-allowed-on-locked-devices)
    * [FAILED (remote: 'This partition doesn't exist')](#failed-remote-this-partition-doesnt-exist)
    * [FAILED (remote: 'Not enough space to resize partition')](#failed-remote-not-enough-space-to-resize-partition)
       + [Solution](#solution-1)
@@ -309,7 +310,7 @@ This covers most T-Mobile users, in addition to some AT&T support depending on r
 ## Error: write_sparse_skip_chunk: don't care size XXXXXXXXX is not a multiple of the block size XXXX
 You probably didn't unzip the ROM file you are trying to flash. Unzip and try again with the unzipped file.
 
-## FAILED(remote: 'Erase is not allowed on locked devices')
+## FAILED (remote: 'Erase is not allowed on locked devices')
 You have not unlocked the bootloader because you probably missed a step in [Unlock the bootloader](#unlock-the-bootloader). Go back and redo the steps in that section.
 
 ## FAILED (remote: 'This partition doesn't exist')
