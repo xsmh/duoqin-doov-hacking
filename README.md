@@ -186,6 +186,10 @@ You need to unlock the bootloader in order to flash the new ROM.
 3. Run `fastboot --disable-verity --disable-verification flash vbmeta vbmeta_a.bin`.  
 
 ## For F21 Pro and similar models where “press volume up” doesn’t work
+
+>[!NOTE] 
+> Only use this method if you have the F21 or you have already tried the previous method and it did not work on your device.
+
 1. Turn off the phone.
 2. Run `mtk da seccfg unlock`. Connect the cable and wait for the command to finish.
 3. [Enter fastboot](#enter-fastboot).
@@ -371,6 +375,8 @@ It can't be trusted and may not work properly
 Press power button to continue.
 Or, device will power off in 5s
 ```
+> [!NOTE] 
+The following solution is only applicable if your device does **not** boot into the OS after pressing the power button once the message shows up. If it does boot then you have probably unlocked the bootloader with mtkclient and you will need to relock it with `mtk da seccfg lock` and then [unlock it again with fastboot instead](#for-most-models).
 
 ### Solution
 Follow step 3-4 from [this section](#for-f21-pro-and-similar-models-where-press-volume-up-doesnt-work). If that doesn't work, you can try this:
