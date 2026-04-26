@@ -39,7 +39,7 @@ If this saved you time and effort, I’d appreciate your support on [Ko-fi](http
    * [FAILED (remote: 'This partition doesn't exist')](#failed-remote-this-partition-doesnt-exist)
    * [FAILED (remote: 'Not enough space to resize partition')](#failed-remote-not-enough-space-to-resize-partition)
       + [Solution](#solution-1)
-         - [Option 1: Delete product partition (Experimental)](#option-1-delete-product-partition-experimental)
+         - [Option 1: Delete product partition](#option-1-delete-product-partition)
          - [Option 2: Delete COW partitions](#option-2-delete-cow-partitions)
             * [For `cow` partitions that are in slot `a` (e.g. `system_a-cow`)](#for-cow-partitions-that-are-in-slot-a-eg-system_a-cow)
             * [For `cow` partitions that are in slot `b` (e.g. `system_b-cow`)](#for-cow-partitions-that-are-in-slot-b-eg-system_b-cow)
@@ -328,7 +328,7 @@ On some devices like the F21 Pro 3GB model, you might run into this error when y
 
 You can pick one of the following options to fix it. 
 
-#### Option 1: Delete product partition (Experimental)
+#### Option 1: Delete product partition
 
 1. [Enter fastboot](#enter-fastboot)
 2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**,.
