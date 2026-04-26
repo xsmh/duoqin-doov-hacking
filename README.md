@@ -41,8 +41,8 @@ If this saved you time and effort, I’d appreciate your support on [Ko-fi](http
       + [Solution](#solution-1)
          - [Option 1: Delete product partition (Experimental)](#option-1-delete-product-partition-experimental)
          - [Option 2: Delete COW partitions](#option-2-delete-cow-partitions)
-            * [For `cow` partitions that are in slot `a` (.e.g `system_a-cow`)](#for-cow-partitions-that-are-in-slot-a-eg-system_a-cow)
-            * [For `cow` partitions that are in slot `b` (.e.g `system_b-cow`)](#for-cow-partitions-that-are-in-slot-b-eg-system_b-cow)
+            * [For `cow` partitions that are in slot `a` (e.g. `system_a-cow`)](#for-cow-partitions-that-are-in-slot-a-eg-system_a-cow)
+            * [For `cow` partitions that are in slot `b` (e.g. `system_b-cow`)](#for-cow-partitions-that-are-in-slot-b-eg-system_b-cow)
             * [Finally](#finally)
    * [Dm-verity corruption](#dm-verity-corruption)
       + [Solution](#solution-2)
@@ -330,10 +330,6 @@ You can pick one of the following options to fix it.
 
 #### Option 1: Delete product partition (Experimental)
 
-> [!CAUTION] 
-> Deleting the product partition has not been tested extensively. The side effects on the newly installed ROM are unknown. Usually it is recommended to flash a smaller product image instead.
-> But this is the simpler solution, and it would be great if more people could test it. Make sure to have a backup first.  
-
 1. [Enter fastboot](#enter-fastboot)
 2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**,.
 3. Run `fastboot getvar current-slot` to check which slot is currently active (`a` or `b`). Take note of the active slot as we will be using it in the next step.
@@ -346,7 +342,7 @@ You can now repeat steps 6-7 from [Flash the new ROM](#flash-new-rom) section.
 2. Run `fastboot getvar all` and check if you have any partitions with the name ending with `cow`. Example: `system_a-cow`. If you have them proceed to the next step, otherwise ignore this option and use [Option 1](#option-1-delete-product-partition-experimental) instead.
 3. Run `fastboot getvar current-slot` to check which slot is currently active (`a` or `b`). Take note of the active slot as we will be using it later.
 
-##### For `cow` partitions that are in slot `a` (.e.g `system_a-cow`)
+##### For `cow` partitions that are in slot `a` (e.g. `system_a-cow`)
 
 1. Run `fastboot set_active a` to set the active slot to `a`.
 2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
@@ -354,7 +350,7 @@ You can now repeat steps 6-7 from [Flash the new ROM](#flash-new-rom) section.
 4. Repeat the previous step for each `cow` partition in the `a` slot.
 
 
-##### For `cow` partitions that are in slot `b` (.e.g `system_b-cow`)
+##### For `cow` partitions that are in slot `b` (e.g. `system_b-cow`)
 1. Run `fastboot set_active b` to set the active slot to `b`.
 2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D**.
 3. Use `fastboot delete-logical-partition examplePartition` to delete the desired `cow` partition. Replace `examplePartition` with the name of the `cow` partition you want to delete (e.g. `system_b-cow`).
