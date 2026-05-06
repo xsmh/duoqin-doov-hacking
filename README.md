@@ -33,6 +33,9 @@ If this saved you time and effort, I’d appreciate your support on [Ko-fi](http
    * [Solution](#solution)
 - [Flash American bands on F21 Pro](#flash-american-bands-on-f21-pro)
    * [Flash](#flash)
+      + [Option 1: Use Linux to rewrite IMEI & MAC](#option-1-use-linux-to-rewrite-imei-&-mac)
+      + [Option 2: Use Windows to rewrite IMEI & MAC](#option-2-use-windows-to-rewrite-imei-&-mac)
+   * [Verify](#verify)
 - [Common errors](#common-errors)
    * [Error: write_sparse_skip_chunk: don't care size XXXXXXXXX is not a multiple of the block size XXXX](#error-write_sparse_skip_chunk-dont-care-size-xxxxxxxxx-is-not-a-multiple-of-the-block-size-xxxx)
    * [FAILED (remote: 'Erase is not allowed on locked devices')](#failed-remote-erase-is-not-allowed-on-locked-devices)
@@ -53,11 +56,11 @@ If this saved you time and effort, I’d appreciate your support on [Ko-fi](http
 
 
 # Overview
-This documentation has been written to walk the owners of Qin/Doov devices through flashing DumberOS (formerly Dumbdroid) or any other compatible ROM of their choice.
+This guide has been written to walk the owners of Qin/Doov devices through flashing DumberOS (formerly Dumbdroid) or any other compatible ROM of their choice.
 
 The guide assumes that you are using Windows 10/11. If you are using Linux, I trust your ability to figure out the OS specific parts on your own. If you are using macOS, good luck.
 
-If you encounter any problems while following this guide, refer to the [common errors](#common-errors) section. If your issue isn’t listed there, please [open a new issue](https://github.com/xsmh/duoqin-doov-hacking/issues/new) in this repository and include a description of the problem along with the relevant logs.
+If you encounter any issues while following this guide, refer to the [common errors](#common-errors) section. If your issue isn’t listed there, please [open a new issue](https://github.com/xsmh/duoqin-doov-hacking/issues/new) in this repository and include a description of it along with the relevant logs.
 
 ## Tested devices 
 The guide has been tested on the following devices but it should work on most other models as well:
@@ -105,10 +108,10 @@ By following this guide, you **agree to proceed at your own risk**. I'm **not re
 # Install the flashing tools 
 This has been by far the most difficult part of the process for most users.
 To simplify it I have created a customized Linux ISO that comes with the tools you need pre-installed. The OS you are using on your machine is irrelevant as it will not be affected.  
-The Linux ISO does not include SN Writer, which you will only need if you are flashing the American bands. You will have to use Windows for that part if you need it.
+The Linux ISO does not include SN Write Tool, which you will only need if you are flashing the American bands and for whatever reason you decide to not go with the Linux way of rewriting the identifiers. You will have to use Windows for that part if you need it.
 
 ## Create bootable USB stick
-1. Download the [Linux ISO](https://drive.google.com/file/d/1Et7JjyKfpadQd9hh9fi7D-ECnHhC0tQT) that comes pre-installed with the tools.
+1. Download the [Linux ISO](https://drive.google.com/file/d/1ytW1rCCE_Zq96QrvrsVqkdgNaUYvL70t) that comes pre-installed with the tools.
 2. Download and install [Rufus](https://rufus.ie/en/#download).
 3. Launch Rufus and insert a USB stick. Your USB drive should show up in the `Device` field.
 4. Click `SELECT`. Choose the Linux ISO and click `Open` to confirm.
@@ -131,7 +134,7 @@ There are two ways you could go about this.
 - There is no persistence. Meaning that any data you store on the Linux ISO itself will be lost after a reboot.
 - Wi-Fi may not work on some computer models due to unavailable proprietary drivers. In which case you will have to either use an Ethernet cable or transfer data via an external drive.
 - Any command you run in the terminal is case-sensitive, so type it exactly as instructed. 
-- Includes empty vbmeta file, American bands partitions, python script to force fastboot mode, and an `F21 Pro` boot image without TWRP installed.
+- Includes empty vbmeta file, American bands partitions, python script to force fastboot mode, bash script to rewrite IMEI & MAC, and an `F21 Pro` boot image without TWRP.
 - There are 4 pre-installed programs that you can run with the following commands from the terminal: 
  1. `adb`
  2. `fastboot`
@@ -277,6 +280,14 @@ This covers most T-Mobile users, in addition to some AT&T support depending on r
 
 ## Flash
 
+### Option 1 (Experimental): Use Linux to rewrite IMEI & MAC
+1. Run `mtk r nvdata nvdata.bin` and wait for the command to finish running.
+2. Run `sudo sh rewrite.sh`, type in the password `user` once prompted and hit enter to rewrite IMEI and MAC addresses to the LTE bands files.
+3. Run `mtk wl F30_Modem_Files` to flash LTE bands.
+4. Follow the steps in [Verify](#verify).
+
+### Option 2: Use Windows to rewrite IMEI & MAC
+
 > [!CAUTION] 
 > If you skip SN Write Tool, you’ll get dummy identifiers that may conflict with other devices.
 
@@ -285,7 +296,7 @@ This covers most T-Mobile users, in addition to some AT&T support depending on r
     2. Write down these fields: **IMEI**, **WiFi MAC**, **Bluetooth MAC**.
 
 2. **Flash LTE Bands**
-    1. Run `mtk wl F30_Modem_Files` and wait for it to finish.
+    1. Run `mtk wl F30_Modem_Files` from the Linux ISO and wait for it to finish.
 
 3. **Prepare SN Write Tool (Windows)**
     1. Switch to Windows, download and unzip [SN Write Tool](https://drive.google.com/file/d/1mmiI9kMxqQdlhN6pV-Z44qI3lXHt9ChA).
@@ -304,10 +315,12 @@ This covers most T-Mobile users, in addition to some AT&T support depending on r
     5. Click Start and input your saved identifiers (no spaces in IMEI, no colons in BT/WiFi).
     6. Hold your phone's Back button, plug it in via USB, and click OK. Wait for the green PASS. If a second window pops up, close it if you already saw PASS.
 
-5. **Verify**
-    1. Turn the phone on and check Settings > About Phone to confirm your identifiers are restored.
-    2. Dial **\*#\*#3646633#\*#\*** to open Engineer Mode. Go to Band Mode, scroll down and confirm bands `2, 4, 12, 13, 17, 66, 71` are active.
-    3. Test calls/texting and internet data on the stock ROM to make sure whatever issue you might face after installing DumberOS isn't related to your carrier.
+5. Follow the steps in [Verify](#verify).
+
+## Verify
+1. Turn on the phone and check **IMEI**, **WiFi MAC**, **Bluetooth MAC** fields in Settings > About Phone to confirm your identifiers are restored.
+2. Dial **\*#\*#3646633#\*#\*** to open Engineer Mode. Go to Band Mode, scroll down and confirm bands `2, 4, 12, 13, 17, 66, 71` are active.
+3. Test calls/texting and internet data on the stock ROM to make sure whatever issue you might face after installing DumberOS isn't related to your carrier.
 
 # Common errors
 
@@ -410,12 +423,11 @@ If you see this error inside the Linux ISO you are probably running out of RAM a
 
 # Special Thanks
 
-This guide would not have been possible without the amazing contributions from:
-
-[AlikornSause](https://ko-fi.com/alikornsause)  
-[Michal Brzozowski](https://ko-fi.com/dumbdroid)  
-[Deathmist](https://github.com/JamiKettunen)  
-[CatStoleTheCrown](https://ko-fi.com/storymode)
+[AlikornSause](https://ko-fi.com/alikornsause) - for his amazing [guide](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO).
+[Michal Brzozowski](https://ko-fi.com/dumbdroid) - for making [DumberOS](https://dumbermini.com).
+[Deathmist](https://github.com/JamiKettunen) - for providing f21 boot image and various tips on using fastboot and mtkclient. 
+[ars18](https://github.com/alltechdev) - for writing [a very useful script](https://github.com/alltechdev/mtk-imei-switcheroo) for rewriting IMEI & MAC addresses. 
+[CatStoleTheCrown](https://ko-fi.com/storymode) - for his guide on restoring identifiers with SN Write Tool.
 
 [^F22]: DumberOS does not work with the F22 non-pro, it uses a 32-bit system and you will have to find a compatible ROM on your own.
 [^RAM]: 4GB of RAM is also possible but not recommended because the Linux ISO will crash if you download and extract the DumberOS image on it. You will have to download and extract the DumberOS image from your main operating system on your computer. You would then put it on an external drive, reboot into the Linux ISO and flsah the image with the correct path provided.
