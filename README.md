@@ -33,8 +33,8 @@ If this saved you time and effort, I’d appreciate your support on [Ko-fi](http
    * [Solution](#solution)
 - [Flash American bands on F21 Pro](#flash-american-bands-on-f21-pro)
    * [Flash](#flash)
-      + [Option 1: Use Linux to rewrite IMEI & MAC](#option-1-use-linux-to-rewrite-imei-&-mac)
-      + [Option 2: Use Windows to rewrite IMEI & MAC](#option-2-use-windows-to-rewrite-imei-&-mac)
+      + [Option 1: Use Linux to rewrite IMEI & MAC](#option-1-use-linux-to-rewrite-imei--mac)
+      + [Option 2: Use Windows to rewrite IMEI & MAC](#option-2-use-windows-to-rewrite-imei--mac)
    * [Verify](#verify)
 - [Common errors](#common-errors)
    * [Error: write_sparse_skip_chunk: don't care size XXXXXXXXX is not a multiple of the block size XXXX](#error-write_sparse_skip_chunk-dont-care-size-xxxxxxxxx-is-not-a-multiple-of-the-block-size-xxxx)
@@ -423,11 +423,11 @@ If you see this error inside the Linux ISO you are probably running out of RAM a
 
 # Special Thanks
 
-[AlikornSause](https://ko-fi.com/alikornsause) - for his amazing [guide](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO).
-[Michal Brzozowski](https://ko-fi.com/dumbdroid) - for making [DumberOS](https://dumbermini.com).
-[Deathmist](https://github.com/JamiKettunen) - for providing f21 boot image and various tips on using fastboot and mtkclient. 
-[ars18](https://github.com/alltechdev) - for writing [a very useful script](https://github.com/alltechdev/mtk-imei-switcheroo) for rewriting IMEI & MAC addresses. 
-[CatStoleTheCrown](https://ko-fi.com/storymode) - for his guide on restoring identifiers with SN Write Tool.
+- [AlikornSause](https://ko-fi.com/alikornsause) - for his amazing [guide](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO).
+- [Michal Brzozowski](https://ko-fi.com/dumbdroid) - for making [DumberOS](https://dumbermini.com).
+- [Deathmist](https://github.com/JamiKettunen) - for providing f21 boot image and various tips on using fastboot and mtkclient. 
+- [ars18](https://github.com/alltechdev) - for writing [a very useful script](https://github.com/alltechdev/mtk-imei-switcheroo) for rewriting IMEI & MAC addresses. 
+- [CatStoleTheCrown](https://ko-fi.com/storymode) - for his guide on restoring identifiers with SN Write Tool.
 
 [^F22]: DumberOS does not work with the F22 non-pro, it uses a 32-bit system and you will have to find a compatible ROM on your own.
 [^RAM]: 4GB of RAM is also possible but not recommended because the Linux ISO will crash if you download and extract the DumberOS image on it. You will have to download and extract the DumberOS image from your main operating system on your computer. You would then put it on an external drive, reboot into the Linux ISO and flsah the image with the correct path provided.
