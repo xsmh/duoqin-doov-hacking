@@ -33,7 +33,7 @@ If this saved you time and effort, I’d appreciate your support on [Ko-fi](http
    * [Solution](#solution)
 - [Flash American bands on F21 Pro](#flash-american-bands-on-f21-pro)
    * [Flash](#flash)
-      + [Option 1: Use Linux to rewrite IMEI & MAC](#option-1-use-linux-to-rewrite-imei--mac)
+      + [Option 1: Use Linux to rewrite IMEI & MAC](#option-1-experimental-use-linux-to-rewrite-imei--mac)
       + [Option 2: Use Windows to rewrite IMEI & MAC](#option-2-use-windows-to-rewrite-imei--mac)
    * [Verify](#verify)
 - [Common errors](#common-errors)
