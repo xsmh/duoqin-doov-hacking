@@ -281,7 +281,7 @@ This covers most T-Mobile users, in addition to some AT&T support depending on r
 ## Flash
 
 ### Option 1 (Experimental): Use Linux to rewrite IMEI & MAC
-1. Run `mtk r nvdata nvdata.bin` and wait for the command to finish running.
+1. Run `mtk r nvdata nvdata.bin`, while the phone is turned off; connect the cable and wait for the command to finish running.
 2. Run `sudo sh rewrite.sh`, type in the password `user` once prompted and hit enter to rewrite IMEI and MAC addresses to the LTE bands files.
 3. Run `mtk wl F30_Modem_Files` to flash LTE bands.
 4. Follow the steps in [Verify](#verify).
