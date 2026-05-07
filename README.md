@@ -4,10 +4,6 @@ Documentation for hacking Qin (Duoqin) / Doov brand phones.
 # Support Me
 Support me on <a href="https://ko-fi.com/sheep1">Ko-fi</a>.  
 
-<a href="https://ko-fi.com/sheep1">
-  <img src="https://cdn.prod.website-files.com/5c14e387dab576fe667689cf/670f5a0171bfb928b21a7e00_support_me_on_kofi_beige.png" alt="Ko-fi" width="500">
-</a>
-
 # ToC
 - [Overview](#overview)
    * [Tested devices ](#tested-devices)
