@@ -111,7 +111,7 @@ To simplify it I have created a customized Linux ISO that comes with the tools y
 The Linux ISO does not include SN Write Tool, which you will only need if you are flashing the American bands and for whatever reason you decide to not go with the Linux way of rewriting the identifiers. You will have to use Windows for that part if you need it.
 
 ## Create bootable USB stick
-1. Download the [Linux ISO](https://drive.google.com/file/d/1ytW1rCCE_Zq96QrvrsVqkdgNaUYvL70t) that comes pre-installed with the tools.
+1. Download the [Linux ISO](https://drive.google.com/file/d/1uyO3WX3wNMXtjAiJSOnh0DY5FgMUvy35) that comes pre-installed with the tools.
 2. Download and install [Rufus](https://rufus.ie/en/#download).
 3. Launch Rufus and insert a USB stick. Your USB drive should show up in the `Device` field.
 4. Click `SELECT`. Choose the Linux ISO and click `Open` to confirm.
