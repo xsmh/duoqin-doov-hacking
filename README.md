@@ -2,10 +2,10 @@
 Documentation for hacking Qin (Duoqin) / Doov brand phones.
 
 # Support Me
-If this saved you time and effort, I’d appreciate your support on [Ko-fi](https://ko-fi.com/sheep1).
+Support me on <a href="https://ko-fi.com/sheep1">Ko-fi</a>.  
 
 <a href="https://ko-fi.com/sheep1">
-  <img src="https://cdn.prod.website-files.com/5c14e387dab576fe667689cf/670f5a0171bfb928b21a7e00_support_me_on_kofi_beige.png" alt="Ko-fi" width="400">
+  <img src="https://cdn.prod.website-files.com/5c14e387dab576fe667689cf/670f5a0171bfb928b21a7e00_support_me_on_kofi_beige.png" alt="Ko-fi" width="500">
 </a>
 
 # ToC
@@ -222,6 +222,23 @@ There are a few LineageOS ROMs available that you can try. I'm going to flash Du
 6. Run this command from fastboot**D**  
 `fastboot flash system "Downloads/???.img"` but replace `???` with the actual filename and wait for it to finish. **Note:** The `"Downloads/???.img"` path assumes you extracted the DumberOS image inside the Downloads folder of the live Linux image.
 8. Run `fastboot reboot` and wait for the device to reboot. If Orange State warning appears, press the power button to proceed and wait 5-10 minutes for the new OS to boot.
+
+<p align="center">
+  <h3 align="center">
+    ☕ If this saved you time and effort, I’d appreciate your support on 
+    <a href="https://ko-fi.com/sheep1">Ko-fi</a>
+  </h3>
+
+  <p align="center">
+    <a href="https://ko-fi.com/sheep1">
+      <img 
+        src="https://cdn.prod.website-files.com/5c14e387dab576fe667689cf/670f5a0171bfb928b21a7e00_support_me_on_kofi_beige.png" 
+        alt="Ko-fi" 
+        width="400"
+      >
+    </a>
+  </p>
+</p>
 
 
 # Enter fastboot
