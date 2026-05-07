@@ -281,10 +281,11 @@ This covers most T-Mobile users, in addition to some AT&T support depending on r
 ## Flash
 
 ### Option 1 (Experimental): Use Linux to rewrite IMEI & MAC
-1. Run `mtk r nvdata nvdata.bin`, while the phone is turned off; connect the cable and wait for the command to finish running.
-2. Run `sudo sh rewrite.sh`, type in the password `user` once prompted and hit enter to rewrite IMEI and MAC addresses to the LTE bands files.
-3. Run `mtk wl F30_Modem_Files` to flash LTE bands.
-4. Follow the steps in [Verify](#verify).
+1. Turn off the phone.
+2. Run `mtk r nvdata nvdata.bin`, connect the cable and wait for the command to finish running.
+3. Run `sudo sh rewrite.sh`, type in the password `user` once prompted and hit enter to rewrite IMEI and MAC addresses to the LTE bands files.
+4. Run `mtk wl F30_Modem_Files`, connect the cable and wait for the command to finish running to flash LTE bands.
+5. Follow the steps in [Verify](#verify).
 
 ### Option 2: Use Windows to rewrite IMEI & MAC
 
@@ -296,7 +297,8 @@ This covers most T-Mobile users, in addition to some AT&T support depending on r
     2. Write down these fields: **IMEI**, **WiFi MAC**, **Bluetooth MAC**.
 
 2. **Flash LTE Bands**
-    1. Run `mtk wl F30_Modem_Files` from the Linux ISO and wait for it to finish.
+    1. Turn off the phone.
+    2. Run `mtk wl F30_Modem_Files` from the Linux ISO, connect the cable and wait for it to finish.
 
 3. **Prepare SN Write Tool (Windows)**
     1. Switch to Windows, download and unzip [SN Write Tool](https://drive.google.com/file/d/1mmiI9kMxqQdlhN6pV-Z44qI3lXHt9ChA).
