@@ -280,6 +280,8 @@ This covers most T-Mobile users, in addition to some AT&T support depending on r
 
 ## Flash
 
+Pick one of the following options for flashing the bands. The Linux method is experimental but that's what I would recommend going forward. The Windows method will probably be removed once the Linux method has been tested extensively.
+
 ### Option 1 (Experimental): Use Linux to rewrite IMEI & MAC
 1. Turn off the phone.
 2. Run `mtk r nvdata nvdata.bin`, connect the cable and wait for the command to finish running.
