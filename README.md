@@ -221,7 +221,7 @@ There are a few LineageOS ROMs available that you can try. I'm going to flash Du
 
 <p align="center">
   <h3 align="center">
-    ☕ If this saved you time and effort, I’d appreciate your support on 
+    ☕ If this saved you hours of potential searching, troubleshooting, and effort, I’d appreciate your support on 
     <a href="https://ko-fi.com/sheep1">Ko-fi</a>
   </h3>
 
