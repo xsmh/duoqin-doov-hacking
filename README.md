@@ -170,7 +170,7 @@ If your computer has +16GB of RAM, you could skip using the 2nd drive and store 
 1. Open the terminal in the Linux ISO by clicking the black square icon in the taskbar.
 2. Run `mkdir stock_rom` to create the folder we will be using to store our backup in.
 3. To make the backup, run `mtk rl --skip userdata stock_rom`. Connect the cable to your phone while it is **turned off** and wait for the command to finish running. This will take roughly 10 minutes and will show this message once it is done `DaHandler - All Dumped partitions success`. If the command ran into any errors at any point you should not proceed until you resolve the issue, even if you see the success message at the end. You can double check to see if the files were actually made inside the `stock_rom` folder which you can find inside the home folder using the file explorer, but keep in mind that this does not mean they were made correctly if you did run into any errors.
-4. To backup the preloader, run `mtk r preloader stock_rom/preloader.bin --parttype=boot1`. After this has finished, you should now be able to see a bunch of files with .bin extension inside the stock_rom folder of your USB drive.
+4. To backup the preloader, run `mtk r preloader stock_rom/preloader.bin --parttype=boot1`. After this has finished, you should now be able to see a bunch of files with .bin extension inside the `stock_rom` folder of your USB drive.
 5. Move the stock_rom folder to an external drive or upload it to a cloud storage solution like Google Drive. **Note:** rebooting the Linux ISO will reset the live image and you will lose your backup if you haven't moved it somewhere else.
 
 # Unlock the bootloader
@@ -361,7 +361,7 @@ You can pick one of the following options to fix it.
 3. Run `fastboot getvar current-slot` to check which slot is currently active (`a` or `b`). Take note of the active slot as we will be using it in the next step.
 4. Run `fastboot delete-logical-partition product_a` if your active slot was `a` in the previous step, otherwise replace `product_a` with `product_b` in the command.
 
-You can now repeat steps 6-7 from [Flash the new ROM](#flash-new-rom) section.
+You can now repeat steps 6-7 from [Flash new ROM](#flash-new-rom) section.
 
 #### Option 2: Delete COW partitions
 1. [Enter fastboot](#enter-fastboot) mode if you aren't in it already.
@@ -384,7 +384,7 @@ You can now repeat steps 6-7 from [Flash the new ROM](#flash-new-rom) section.
 
 ##### Finally
 1. Switch back to your initial active slot with the `fastboot set_active exampleSlot` command, replace `exampleSlot` with `a` or `b` depending on which one was active before deleting the cow partition.
-2. Repeat steps 6-7 from [Flash the new ROM](#flash-new-rom) section.
+2. Repeat steps 6-7 from [Flash new ROM](#flash-new-rom) section.
 
 
 ## Dm-verity corruption
