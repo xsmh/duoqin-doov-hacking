@@ -6,13 +6,16 @@ Support me on <a href="https://ko-fi.com/sheep1">Ko-fi</a> ☕
 
 # ToC
 - [Overview](#overview)
-   * [Tested devices ](#tested-devices)
-- [Device button combinations ](#device-button-combinations)
+   * [Device compatibility](#device-compatibility)
+      + [Officially supported](#officially-supported)
+      + [Works but no official support](#works-but-no-official-support)
+      + [Does not work](#does-not-work)
+- [Device button combinations](#device-button-combinations)
 - [Warning  ⚠️ ⚠️ ⚠️](#warning--%EF%B8%8F-%EF%B8%8F-%EF%B8%8F)
 - [Prerequisites](#prerequisites)
-- [Install the flashing tools ](#install-the-flashing-tools)
+- [Install the flashing tools](#install-the-flashing-tools)
    * [Create bootable USB stick](#create-bootable-usb-stick)
-   * [Boot from USB stick ](#boot-from-usb-stick)
+   * [Boot from USB stick](#boot-from-usb-stick)
    * [General info about the Linux ISO](#general-info-about-the-linux-iso)
 - [Make a backup](#make-a-backup)
     * [Option 1 (Recommended): store backup on 2nd USB stick](#option-1-recommended-store-backup-on-2nd-usb-stick)
@@ -63,23 +66,23 @@ The guide itself should work on most Qin and Doov devices. As for DumberOS suppo
 
 ### Officially supported
 - Qin F21 Pro
-- Qin F22 Pro  
+- Qin F22 Pro
 
 - Doov R77 Pro (R77c)
 - Doov R77
-- Doov R17 (Z17) Pro (3.5 inch screen)  
+- Doov R17 (Z17) Pro (3.5 inch screen)
 
 - Dumber Mini
 
 ### Works but no official support
 Some things may not work. Keys may not be mapped correctly, you will need to use a keymapper. Your experience will vary.
 
-- Qin F25 Pro  
+- Qin F25 Pro
 
 - Doov R70 Pro
 
 ### Does not work
-- Qin F22[^F22] (see footnote)  
+- Qin F22[^F22] (see footnote)
 
 # Device button combinations 
 We won't be using any of the button combos in this guide, but they are useful to know sometimes.  
