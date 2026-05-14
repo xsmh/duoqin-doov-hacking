@@ -1,5 +1,5 @@
 # Qin/Doov Hacking
-Documentation for hacking Qin (Duoqin) / Doov brand phones.
+Documentation & tools for hacking Qin (Duoqin) / Doov brand phones.
 
 # Support Me
 Support me on <a href="https://ko-fi.com/sheep1">Ko-fi</a> ☕
@@ -58,18 +58,28 @@ The guide assumes that you are using Windows 10/11. If you are using Linux, I tr
 
 If you encounter any issues while following this guide, refer to the [common errors](#common-errors) section. If your issue isn’t listed there, please [open a new issue](https://github.com/xsmh/duoqin-doov-hacking/issues/new) in this repository and include a description of it along with the relevant logs.
 
-## Tested devices 
-The guide has been tested on the following devices but it should work on most other models as well:
+## Device compatibility
+The guide itself should work on most Qin and Doov devices. As for DumberOS support, it will depend on the device:
 
-**Qin:**
-- F21 Pro
-- F22 Pro
-- F22[^F22] (see footnote for DumberOS)
+### Officially supported
+- Qin F21 Pro
+- Qin F22 Pro  
 
-**Doov:**
-- R77 Pro (R77c)
-- R77
-- R17 (Z17) Pro (3.5 inch screen)
+- Doov R77 Pro (R77c)
+- Doov R77
+- Doov R17 (Z17) Pro (3.5 inch screen)  
+
+- Dumber Mini
+
+### Works but no official support
+Some things may not work. Keys may not be mapped correctly, you will need to use a keymapper. Your experience will vary.
+
+- Qin F25 Pro  
+
+- Doov R70 Pro
+
+### Does not work
+- Qin F22[^F22] (see footnote)  
 
 # Device button combinations 
 We won't be using any of the button combos in this guide, but they are useful to know sometimes.  
