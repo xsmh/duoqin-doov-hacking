@@ -81,6 +81,9 @@ Some things may not work. Keys may not be mapped correctly, you will need to use
 
 - Doov R70 Pro
 
+- Tiq Mini M5
+- Tiq Mini M5s
+
 ### Does not work
 - Qin F22[^F22] (see footnote)
 
