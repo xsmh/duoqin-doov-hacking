@@ -223,6 +223,8 @@ You need to unlock the bootloader in order to flash the new ROM.
 
 There are a few LineageOS ROMs available that you can try. I'm going to flash DumberOS as it's currently the best option for these keypad phones.
 
+>[!CAUTION]
+> DumberOS is a system image that's meant to be flashed to the **system** partition, and **not** the super partition. Flashing it to the super partition can take your device into a bootloop that can be difficult to get out of.
 
 1. [Enter fastboot](#enter-fastboot) mode if you aren't in it already.
 2. Run `fastboot reboot fastboot` and wait for the device to reboot into fastboot**D** (colored text on black background).
